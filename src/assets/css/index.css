@@ -3,9 +3,10 @@
 @tailwind utilities;
 
 :root {
-    font-family: "Inter", sans-serif;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+    --color-black: #0f0f11;
+    --color-white: #d9d8d0;
+    --color-blue: #6f73d9;
+    --color-green: #3f8c70;
 }
 
 @supports (font-variation-settings: normal) {
@@ -14,9 +15,13 @@
     }
 }
 
-body {
+#layout {
     margin: 0;
     min-height: 100vh;
+
+    font-family: "Inter", sans-serif;
+    color: var(--color-white);
+    background-color: var(--color-black);
 }
 
 h1,
@@ -29,6 +34,27 @@ h6 {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 5rem;
     line-height: 1.2;
+}
+
+header .mobileMenu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding: 0rem 1.25rem 4rem;
+    overflow: auto;
+    z-index: 100;
+
+    background-color: var(--color-white);
+    color: var(--color-black);
+}
+
+header .mobileMenu nav a:hover {
+    color: var(--color-blue);
+    text-decoration-line: underline;
+    text-underline-offset: 1rem;
 }
