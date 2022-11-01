@@ -1,4 +1,5 @@
-import NavbarName from "ui/navigation/NavbarName";
+import NavbarName from "navigation/NavbarName";
+import NavbarMenu from "./NavbarMenu";
 
 interface NavbarMobileProps {
     handleMenuOpen: () => void;
@@ -25,10 +26,17 @@ export default function NavbarMobile({ handleMenuOpen, isMenuOpen }: NavbarMobil
     return (
         <div className="h-20 flex justify-between items-center">
             <NavbarName />
+
+            {!isMenuOpen && (
+                <nav className="hidden md:inline-flex space-x-14">
+                    <NavbarMenu />
+                </nav>
+            )}
+
             <button
                 onClick={handleMenuOpen}
                 type="button"
-                className="inline-flex items-center p-2 rounded-lg md:hidden hover:text-primary focus:outline-none focus:ring-2 focus:ring-gray-500"
+                className="inline-flex p-2 rounded-lg md:hidden hover:text-primary focus:outline-none focus:ring-2 focus:ring-gray-500"
             >
                 <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <Icon />

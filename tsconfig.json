@@ -17,7 +17,7 @@
         "jsx": "react-jsx",
         "baseUrl": "./src",
         "paths": {
-            "ui/*": ["./components/ui/*"]
+            "navigation/*": ["./components/ui/navigation/*"]
         }
     },
     "include": ["src"],

@@ -53,7 +53,7 @@ header .mobileMenu {
     color: var(--color-black);
 }
 
-header .mobileMenu nav a:hover {
+header nav a:hover {
     color: var(--color-blue);
     text-decoration-line: underline;
     text-underline-offset: 1rem;

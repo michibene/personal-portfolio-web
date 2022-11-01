@@ -1,4 +1,4 @@
-import Navigation from "ui/navigation/Navigation";
+import Navigation from "navigation/Navigation";
 
 function App() {
     return (
