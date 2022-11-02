@@ -1,4 +1,4 @@
-import NavbarMenu from "navigation/NavbarMenu";
+import NavbarMenu from "navigation/parts/NavbarMenu";
 import NavigationMobile from "navigation/NavigationMobile";
 import { useState } from "react";
 

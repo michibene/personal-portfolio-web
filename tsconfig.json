@@ -19,6 +19,10 @@
         "paths": {
             "images/*": ["./assets/images/*"],
             "navigation/*": ["./components/ui/navigation/*"],
+            "ui/section/*": ["./components/ui/section/*"],
+            "ui/card/*": ["./components/ui/card/*"],
+            "developer/sections/*": ["./pages/developer/sections/*"],
+            "data/developer/*": ["./data/developer/*"],
         }
     },
     "include": ["src"],
