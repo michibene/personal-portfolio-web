@@ -30,7 +30,7 @@ export default function Works() {
 
             <div className="columns-1 md:columns-2 gap-14 space-y-14">
                 {portfolioItems.map((project) => (
-                    <div>
+                    <div key={project.id}>
                         {isTabletOrMobile && (
                             <p
                                 className={`mb-4 text-lg uppercase ${
@@ -41,7 +41,6 @@ export default function Works() {
                             </p>
                         )}
                         <PortfolioCardItem
-                            key={project.id}
                             id={project.id}
                             backgroundColor={project.backgroundColor}
                             imgPath={project.imgPath}

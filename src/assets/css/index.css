@@ -71,10 +71,16 @@ header .mobileMenu {
     color: var(--color-black);
 }
 
-header nav a:hover {
+.clickableLink-1 a:hover {
     color: var(--color-blue);
     text-decoration-line: underline;
     text-underline-offset: 1rem;
+}
+
+.clickableLink-2 a:hover {
+    color: var(--color-blue);
+    text-decoration-line: underline;
+    text-underline-offset: 1.5rem;
 }
 
 p.bigger-thin {

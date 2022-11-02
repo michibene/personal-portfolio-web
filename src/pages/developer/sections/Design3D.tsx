@@ -8,7 +8,7 @@ export default function Design3D() {
             <SectionHeader title="3D Design" />
 
             <div>
-                <div className="flex flex-col md:flex-row gap-16 md:justify-between items-center py-12 md:py-28">
+                <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-12 md:py-28">
                     <p className="bigger-thin md:w-1/3 text-center md:text-left">Job skill that has become a hobby.</p>
 
                     <div className="px-4 md:w-2/3">
@@ -16,7 +16,7 @@ export default function Design3D() {
                     </div>
                 </div>
 
-                <div className="my-28 md:my-36">
+                <div className="mt-48 mb-28 md:my-40">
                     <p className="text-lg text-left md:text-center">
                         As a part of landscape architecture, we worked on 3D models of gardens and parks on a daily
                         basis (see some visualizations in the #landscapeArchitect section). This has become my hobby.
