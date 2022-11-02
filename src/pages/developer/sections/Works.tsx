@@ -1,11 +1,24 @@
 import developerWorks from "data/developer/developerPortfolio";
+import { useEffect, useState } from "react";
+import { useMediaQuery } from "react-responsive";
 import PortfolioCardItem from "ui/card/PortfolioCardItem";
 import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
 import SectionFullHeight from "ui/section/SectionFullHeight";
 import SectionHeader from "ui/section/SectionHeader";
 
 export default function Works() {
-    // Sorting portfolio works - odd numbers first
+    const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });
+    const [portfolioItems, setPortfolioItems] = useState<PortfolioItemProps[]>([]);
+
+    useEffect(() => {
+        setPortfolioItems(handleItemsShowingOnDifferentScreens(developerWorks));
+    }, [isTabletOrMobile]);
+
+    function handleItemsShowingOnDifferentScreens(portfolioArray: PortfolioItemProps[]) {
+        return isTabletOrMobile ? portfolioArray : reorderPortfolioWorks(portfolioArray);
+    }
+
+    // Sorting portfolio items - odd numbers first
     // (Columns are ordered in vertical way and we want horizontal order, so after sort, odd id's are on the left side)
     function reorderPortfolioWorks(portfolioArray: PortfolioItemProps[]) {
         return portfolioArray.sort((a, b) => (b.id % 2) - (a.id % 2));
@@ -15,17 +28,29 @@ export default function Works() {
         <SectionFullHeight>
             <SectionHeader title="Works" />
 
-            <div className="columns-2 gap-14 space-y-14 place-items-end">
-                {reorderPortfolioWorks(developerWorks).map((project) => (
-                    <PortfolioCardItem
-                        key={project.id}
-                        id={project.id}
-                        backgroundColor={project.backgroundColor}
-                        imgPath={project.imgPath}
-                        title={project.title}
-                        justifyTo={project.justifyTo}
-                        smallerSize={project.smallerSize}
-                    />
+            <div className="columns-1 md:columns-2 gap-14 space-y-14">
+                {portfolioItems.map((project) => (
+                    <div>
+                        {isTabletOrMobile && (
+                            <p
+                                className={`mb-4 text-lg uppercase ${
+                                    project.justifyTo == "justify-start" ? "text-left" : "text-right"
+                                }`}
+                            >
+                                {project.techStack}
+                            </p>
+                        )}
+                        <PortfolioCardItem
+                            key={project.id}
+                            id={project.id}
+                            backgroundColor={project.backgroundColor}
+                            imgPath={project.imgPath}
+                            title={project.title}
+                            techStack={project.techStack}
+                            justifyTo={project.justifyTo}
+                            smallerSize={project.smallerSize}
+                        />
+                    </div>
                 ))}
             </div>
         </SectionFullHeight>

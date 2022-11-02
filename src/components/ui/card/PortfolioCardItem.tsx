@@ -10,10 +10,10 @@ export default function PortfolioCardItem({
 }: PortfolioItemProps) {
     return (
         <div className={`flex ${justifyTo}`}>
-            <div className={`p-8 ${smallerSize ? "w-[80%]" : "w-full"}`} style={{ backgroundColor: backgroundColor }}>
+            <div className={`p-6 md:p-8 ${smallerSize ? "w-[80%]" : "w-full"}`} style={{ backgroundColor: backgroundColor }}>
                 <img src={imgPath} alt="Portfolio item" className="shadow-xl" />
 
-                <div className="flex gap-4 mt-10 text-black">
+                <div className="flex gap-4 mt-8 md:mt-10 text-black">
                     <p className="text-3xl w-">{String(id).padStart(2, "0")}</p>
                     <p className="text-3xl font-bold">{title}</p>
                 </div>

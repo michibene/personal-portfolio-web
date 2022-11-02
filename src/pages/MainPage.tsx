@@ -9,7 +9,7 @@ function MainPage() {
 
             <div className="fullscreen-without-header flex flex-col md:flex-row justify-evenly md:justify-between md:items-center gap-6 md:gap-6">
                 <a href="" className="self-start mt-4 md:mt-32 hover:text-developerBlue">
-                    <h1>Developer, Designer</h1>
+                    <h1 className="text-6xl lg:text-7xl xl:text-8xl">Developer, Designer</h1>
                 </a>
 
                 <div className="self-center max-w-[22vh]">
@@ -21,7 +21,7 @@ function MainPage() {
                 </div>
 
                 <a href="" className="self-end mb-4 md:mb-32 hover:text-landscapeGreen text-right">
-                    <h1>Landscape architect</h1>
+                    <h1 className="text-6xl lg:text-7xl xl:text-8xl">Landscape architect</h1>
                 </a>
             </div>
 
