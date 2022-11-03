@@ -38,17 +38,29 @@ h1 {
     line-height: 1.3;
 }
 
+h1.sectionHeader {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+h1.sectionHeader .splitChar {
+    transform: translateY(5rem);
+}
+
 @media (min-width: 768px) {
     h1 {
         font-size: 6rem;
-        line-height: 1.3;
+    }
+    h1.sectionHeader .splitChar {
+        transform: translateY(7rem);
     }
 }
 
 @media (min-width: 1280px) {
     h1 {
         font-size: 7rem;
-        line-height: 1.3;
+    }
+    h1.sectionHeader .splitChar {
+        transform: translateY(8rem);
     }
 }
 

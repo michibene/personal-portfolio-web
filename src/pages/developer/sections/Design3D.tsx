@@ -5,7 +5,7 @@ import carRenderImg from "images/BMW_render.png";
 export default function Design3D() {
     return (
         <SectionFullHeight>
-            <SectionHeader title="3D Design" />
+            <SectionHeader id="3d-design"  title="3D Design" />
 
             <div>
                 <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-12 md:py-28">

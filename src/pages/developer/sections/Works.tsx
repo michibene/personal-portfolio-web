@@ -26,7 +26,7 @@ export default function Works() {
 
     return (
         <SectionFullHeight>
-            <SectionHeader title="Works" />
+            <SectionHeader id="works" title="Works" />
 
             <div className="columns-1 md:columns-2 gap-14 space-y-14">
                 {portfolioItems.map((project) => (
