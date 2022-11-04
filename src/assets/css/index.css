@@ -7,6 +7,8 @@
     --color-white: #d9d8d0;
     --color-blue: #6f73d9;
     --color-green: #3f8c70;
+
+    scroll-behavior: smooth;
 }
 
 body {

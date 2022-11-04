@@ -3,5 +3,5 @@ interface SectionFullHeightProps {
 }
 
 export default function SectionFullHeight({ children }: SectionFullHeightProps) {
-    return <section className="min-h-screen my-32 md:my-48 flex flex-col">{children}</section>;
+    return <section className="min-h-screen mb-32 md:mb-48 flex flex-col">{children}</section>;
 }
