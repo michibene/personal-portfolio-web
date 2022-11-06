@@ -1,19 +1,17 @@
 import SectionFullHeight from "ui/section/SectionFullHeight";
 import SectionHeader from "ui/section/SectionHeader";
-import carRenderImg from "images/BMW_render.png";
+import CarRotationSequence from "components/carAnimation/CarRotationSequence";
 
 export default function Design3D() {
     return (
         <SectionFullHeight>
-            <SectionHeader id="3d-design"  title="3D Design" />
+            <SectionHeader id="3d-design" title="3D Design" />
 
             <div>
                 <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-12 md:py-28">
                     <p className="bigger-thin md:w-1/3 text-center md:text-left">Job skill that has become a hobby.</p>
 
-                    <div className="px-4 md:w-2/3">
-                        <img src={carRenderImg} alt="3D car model"></img>
-                    </div>
+                    <CarRotationSequence />
                 </div>
 
                 <div className="mt-48 mb-28 md:my-40">
@@ -27,7 +25,7 @@ export default function Design3D() {
 
                 <div className="lg:w-2/3 mx-auto">
                     <div className="aspect-w-16 aspect-h-9">
-                        <iframe
+                        {/* <iframe
                             width="560"
                             height="315"
                             src="https://www.youtube.com/embed/DJA4DQQMRg4"
@@ -35,7 +33,7 @@ export default function Design3D() {
                             frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
-                        ></iframe>
+                        ></iframe> */}
                     </div>
                 </div>
             </div>
