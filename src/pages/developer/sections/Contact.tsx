@@ -6,7 +6,7 @@ export default function Contact() {
             <SectionHeader id="contact" title="Contact me" />
 
             <div>
-                <p className="mt-16 md:ml-[50vw] text-lg">
+                <p className="mt-16 md:ml-[40vw] text-lg">
                     Here are some places where you can contact me or find more information about me. I'm looking forward
                     to further communication.
                 </p>

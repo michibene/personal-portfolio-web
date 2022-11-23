@@ -1,6 +1,6 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef, useState } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,26 +26,28 @@ export default function CarRotationSequence() {
         currentImage: (index) => `./src/assets/images/BMW_Render_animation/${index.toString().padStart(4, "0")}.png`,
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         generateImagesArray();
 
         // Show first image on canvas before scrollTrigger action
         carRotationSequenceData.images[0].onload = () => render(0);
 
-        gsap.to(carRotationSequenceData, {
-            currentFrame: carRotationSequenceData.totalFrames,
-            snap: "currentFrame",
-            ease: "none",
-            scrollTrigger: {
-                trigger: ref.current,
-                start: "top 20%",
-                end: `bottom+=${carRotationSequenceData.totalFrames * carRotationSequenceData.timeMultiplicand}`,
-                scrub: 2,
-                pin: false,
-                markers: true,
-            },
-            onUpdate: () => render(carRotationSequenceData.currentFrame),
-        });
+        const ctx = gsap.context(() => {
+            gsap.to(carRotationSequenceData, {
+                currentFrame: carRotationSequenceData.totalFrames,
+                snap: "currentFrame",
+                ease: "none",
+                scrollTrigger: {
+                    trigger: ref.current,
+                    start: "top 40%",
+                    end: `bottom+=${carRotationSequenceData.totalFrames * carRotationSequenceData.timeMultiplicand}`,
+                    scrub: 0.9,
+                    /* markers: { startColor: "orange", endColor: "cyan" }, */
+                },
+                onUpdate: () => render(carRotationSequenceData.currentFrame),
+            });
+        }, ref);
+        return () => ctx.revert();
     }, []);
 
     function generateImagesArray() {
@@ -69,7 +71,7 @@ export default function CarRotationSequence() {
     }
 
     return (
-        <div className="px-4 md:w-2/3">
+        <div className="px-4 md:w-2/3 car-rotation-animation">
             <canvas ref={ref} width={divWidth} height={divHeight}></canvas>
         </div>
     );
