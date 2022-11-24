@@ -31,6 +31,7 @@ h4,
 h5,
 h6 {
     font-family: "Playfair Display", serif;
+    font-weight: 600;
 }
 
 h1 {
@@ -74,6 +75,7 @@ header .mobileMenu {
     right: 0;
     bottom: 0;
     left: 0;
+    height: 100vh;
 
     padding: 0rem 1.25rem 4rem;
     overflow: auto;
@@ -103,6 +105,5 @@ p.bigger-thin {
 @media (min-width: 768px) {
     p.bigger-thin {
         font-size: 2.8rem;
-        font-weight: 200;
     }
 }
