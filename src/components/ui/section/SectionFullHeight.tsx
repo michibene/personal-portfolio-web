@@ -1,6 +1,6 @@
 interface SectionFullHeightProps {
     children?: JSX.Element | JSX.Element[];
-    classNameProps: string;
+    classNameProps?: string;
 }
 
 export default function SectionFullHeight({ children, classNameProps }: SectionFullHeightProps) {

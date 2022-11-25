@@ -16,7 +16,7 @@ export default function Navigation() {
             {isMobileMenuOpen && (
                 <div className="mobileMenu flex flex-col justify-between">
                     <NavigationMobile isMenuOpen={isMobileMenuOpen} handleMenuOpen={toggleMobileMenuShowing} />
-                    <nav className="clickableLink-2 text-5xl uppercase space-y-12">
+                    <nav className="clickableLink bigger-underline-offset text-5xl uppercase space-y-12">
                         <NavbarMenu />
                     </nav>
                 </div>

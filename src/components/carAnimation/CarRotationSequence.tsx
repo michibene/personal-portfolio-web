@@ -15,6 +15,7 @@ interface CarRotationSequenceProps {
 export default function CarRotationSequence() {
     const ref = useRef<HTMLCanvasElement>(null);
 
+    /* 858 x 480 */
     const [divWidth, setDivWidth] = useState(858);
     const [divHeight, setDivHeight] = useState(480);
 
@@ -42,7 +43,7 @@ export default function CarRotationSequence() {
                     start: "top 40%",
                     end: `bottom+=${carRotationSequenceData.totalFrames * carRotationSequenceData.timeMultiplicand}`,
                     scrub: 0.9,
-                    /* markers: { startColor: "orange", endColor: "cyan" }, */
+                    markers: { startColor: "orange", endColor: "cyan" },
                 },
                 onUpdate: () => render(carRotationSequenceData.currentFrame),
             });

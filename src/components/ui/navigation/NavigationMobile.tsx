@@ -24,7 +24,7 @@ export default function NavbarMobile({ handleMenuOpen, isMenuOpen }: NavbarMobil
             <NavbarName />
 
             {!isMenuOpen && (
-                <nav className="hidden md:inline-flex clickableLink-1 space-x-14">
+                <nav className="hidden md:inline-flex clickableLink space-x-14">
                     <NavbarMenu />
                 </nav>
             )}

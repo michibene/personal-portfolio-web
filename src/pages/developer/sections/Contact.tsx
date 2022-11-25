@@ -11,7 +11,7 @@ export default function Contact() {
                     to further communication.
                 </p>
 
-                <ul className="clickableLink-2 mt-24 md:mt-32 space-y-8 md:space-y-14 md:ml-[25vw] text-2xl md:text-4xl font-semibold">
+                <ul className="clickableLink bigger-underline-offset mt-24 md:mt-32 space-y-8 md:space-y-14 md:ml-[25vw] text-2xl md:text-4xl font-semibold">
                     <li>
                         <a href="mailto: hello@michalbeno.eu?subject = Hello from Website">hello@michalbeno.eu</a>
                     </li>

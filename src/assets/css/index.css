@@ -75,7 +75,6 @@ header .mobileMenu {
     right: 0;
     bottom: 0;
     left: 0;
-    height: 100vh;
 
     padding: 0rem 1.25rem 4rem;
     overflow: auto;
@@ -85,15 +84,13 @@ header .mobileMenu {
     color: var(--color-black);
 }
 
-.clickableLink-1 a:hover {
+.clickableLink a:hover {
     color: var(--color-blue);
     text-decoration-line: underline;
     text-underline-offset: 1rem;
 }
 
-.clickableLink-2 a:hover {
-    color: var(--color-blue);
-    text-decoration-line: underline;
+.clickableLink .bigger-underline-offset a:hover {
     text-underline-offset: 1.5rem;
 }
 
