@@ -31,7 +31,7 @@ export default function Design3D() {
                 <div className="trigger-container">
                     <SectionHeader id="design-3D" title="3D Design" />
 
-                    <div className="pinned-text flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-12 md:py-20">
+                    <div className="pinned-text flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-16 md:py-14">
                         <p className="bigger-thin md:w-1/3 text-center md:text-left">
                             Job skill that has become a hobby.
                         </p>
@@ -49,7 +49,7 @@ export default function Design3D() {
                 </p>
             </div>
 
-            <div className="lg:w-2/3 mx-auto">
+            <div className="w-full md:w-2/3 mx-auto">
                 <div className="aspect-w-16 aspect-h-9">
                     <iframe
                         width="560"
