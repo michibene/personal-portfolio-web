@@ -27,10 +27,9 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
             duration: 0.3,
             scrollTrigger: {
                 trigger: header,
-                start: "top 90%",
+                start: "top bottom",
                 end: "bottom 10%",
                 scrub: false,
-                markers: true,
             },
         });
     });
