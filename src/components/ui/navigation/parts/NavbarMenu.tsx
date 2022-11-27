@@ -7,7 +7,7 @@ export default function NavbarMenu() {
             <a href="#works" className="block">
                 Works
             </a>
-            <a href="#contact" className="block">
+            <a href="#contact-me" className="block">
                 Contact
             </a>
         </>

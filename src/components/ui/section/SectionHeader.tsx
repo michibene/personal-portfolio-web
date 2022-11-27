@@ -1,5 +1,8 @@
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface SectionHeaderProps {
     id: string;
@@ -13,14 +16,24 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
         splitClass: "splitChar",
     });
 
-    if (document.querySelector(".splitChar")) {
-        gsap.to(".splitChar", {
+    // Create array for each header section to apply the same effect with different scrollTriggers
+    const headers = gsap.utils.toArray<HTMLElement>(".sectionHeader");
+
+    headers.forEach((header) => {
+        gsap.to(header.querySelectorAll(".splitChar"), {
             y: 0,
             stagger: 0.05,
             delay: 0.2,
             duration: 0.3,
+            scrollTrigger: {
+                trigger: header,
+                start: "top 90%",
+                end: "bottom 10%",
+                scrub: false,
+                markers: true,
+            },
         });
-    }
+    });
 
     return (
         <h1 id={id} className="mb-16 md:mb-24 sectionHeader">

@@ -3,7 +3,7 @@ import SectionHeader from "ui/section/SectionHeader";
 export default function Contact() {
     return (
         <section className="my-32 md:mt-4 8md:mb-32 flex flex-col">
-            <SectionHeader id="contact" title="Contact me" />
+            <SectionHeader id="contact-me" title="Contact me" />
 
             <div>
                 <p className="mt-16 md:ml-[40vw] text-lg">
