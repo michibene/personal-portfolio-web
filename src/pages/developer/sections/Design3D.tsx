@@ -44,7 +44,7 @@ export default function Design3D() {
                 <p className="text-lg text-left md:text-center">
                     As a part of landscape architecture, we worked on 3D models of gardens and parks on a daily basis
                     (see some visualizations in the #landscapeArchitect section). This has become my hobby. Later, I've
-                    been actively learning the basics of animation in my spare time. Here is a short animation made in
+                    been actively learning the basics of animation in my spare time. Here is a short animation I've made in
                     Blender.
                 </p>
             </div>

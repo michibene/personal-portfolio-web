@@ -94,6 +94,10 @@ header .mobileMenu {
     text-underline-offset: 1.5rem;
 }
 
+p.text-lg {
+    line-height: 2rem;
+}
+
 p.bigger-thin {
     font-size: 2rem;
     font-weight: 200;
