@@ -36,20 +36,46 @@
             }
 
             .spinner {
-                border: 0.7rem solid #0f0f11;
-                border-top: 0.7rem solid #6f73d9;
-                border-radius: 50%;
-                width: 8rem;
-                height: 8rem;
-                animation: spin 0.7s linear infinite;
+                animation: 2s linear infinite spinner-animation;
+                max-width: 100px;
             }
 
-            @keyframes spin {
+            @keyframes spinner-animation {
                 0% {
-                    transform: rotate(0deg);
+                    transform: rotateZ(0deg);
+                }
+                100% {
+                    transform: rotateZ(360deg);
+                }
+            }
+
+            .path {
+                animation: 1.4s ease-in-out infinite both path-animation;
+                display: block;
+                fill: transparent;
+                stroke: #0f0f11;
+                stroke-linecap: round;
+                stroke-dasharray: 283;
+                stroke-dashoffset: 280;
+                stroke-width: 8px;
+                transform-origin: 50% 50%;
+            }
+
+            @keyframes path-animation {
+                0%,
+                25% {
+                    stroke-dashoffset: 280;
+                    transform: rotate(0);
+                }
+
+                50%,
+                75% {
+                    stroke-dashoffset: 75;
+                    transform: rotate(45deg);
                 }
 
                 100% {
+                    stroke-dashoffset: 280;
                     transform: rotate(360deg);
                 }
             }
@@ -58,7 +84,10 @@
     <body>
         <div id="root">
             <div class="loader-wrapper">
-                <div class="spinner"></div>
+                <!-- <div class="spinner"></div> -->
+                <svg class="spinner" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" cx="50" cy="50" r="45" />
+                </svg>
             </div>
         </div>
         <script type="module" src="/src/index.tsx"></script>
