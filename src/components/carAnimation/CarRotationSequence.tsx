@@ -25,8 +25,15 @@ export default function CarRotationSequence() {
         timeMultiplicand: 5,
         images: [],
         currentFrame: 0,
-        currentImage: (index) => `./src/assets/images/BMW_Render_animation/${index.toString().padStart(4, "0")}.png`,
+        currentImage: (index) => getImageUrl(index),
     };
+
+    function getImageUrl(index: number) {
+        return new URL(
+            `/src/assets/images/BMW_Render_animation/${index.toString().padStart(4, "0")}.png`,
+            import.meta.url
+        ).href;
+    }
 
     const windowSize: Size = useWindowSizeHook();
     const defaultImageSize: ImageSizeProps = {
