@@ -2,7 +2,7 @@ export default [
     {
         id: 1,
         backgroundColor: "rgba(226, 230, 219, 0.9)",
-        imgPath: "src/assets/images/GFA_Dashboard_app.png",
+        imgName: "GFA_Dashboard_app",
         title: "GFA Dashboard app",
         techStack: "NodeJS, Express, JWT, PostgreSQL, React, TypeScript, Bootstrap",
         justifyTo: "justify-end",
@@ -11,7 +11,7 @@ export default [
     {
         id: 2,
         backgroundColor: "rgba(202, 223, 242, 0.9)",
-        imgPath: "src/assets/images/Webshop_App.png",
+        imgName: "Webshop_app",
         title: "Webshop app",
         techStack: "JAVA, Spring Boot, Thymeleaf, MySQL",
         justifyTo: "justify-start",
@@ -20,7 +20,7 @@ export default [
     {
         id: 3,
         backgroundColor: "rgba(222, 221, 211, 0.9)",
-        imgPath: "src/assets/images/Wanderer_game.png",
+        imgName: "Wanderer_game",
         title: "Wanderer game",
         techStack: "JAVA",
         justifyTo: "justify-end",
@@ -29,7 +29,7 @@ export default [
     {
         id: 4,
         backgroundColor: "rgba(209, 209, 218, 0.9)",
-        imgPath: "src/assets/images/P2P_chat_app.png",
+        imgName: "P2P_chat_app",
         title: "P2P chat app",
         techStack: "JAVA, Spring Boot, Thymeleaf",
         justifyTo: "justify-start",

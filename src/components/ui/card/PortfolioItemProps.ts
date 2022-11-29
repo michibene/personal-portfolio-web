@@ -1,7 +1,7 @@
 export interface PortfolioItemProps {
     id: number;
     backgroundColor: string;
-    imgPath: string;
+    imgName: string;
     title: string;
     techStack: string;
     justifyTo: string;

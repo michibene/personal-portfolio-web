@@ -35,7 +35,7 @@ export default function Design3D() {
                         <p className="bigger-thin md:w-1/3 text-center md:text-left">
                             Job skill that has become a hobby.
                         </p>
-                        <CarRotationSequence />
+                        {/* <CarRotationSequence /> */}
                     </div>
                 </div>
             </div>

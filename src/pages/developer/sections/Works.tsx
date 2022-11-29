@@ -43,7 +43,7 @@ export default function Works() {
                         <PortfolioCardItem
                             id={project.id}
                             backgroundColor={project.backgroundColor}
-                            imgPath={project.imgPath}
+                            imgName={project.imgName}
                             title={project.title}
                             techStack={project.techStack}
                             justifyTo={project.justifyTo}
