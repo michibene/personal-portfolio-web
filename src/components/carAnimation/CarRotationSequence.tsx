@@ -1,7 +1,8 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useWindowSizeHook, { Size } from "./useWindowSizeHook";
+import defaultCarAnimationImageSource from "images/BMW_Render_animation/0001.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,6 +28,8 @@ export default function CarRotationSequence() {
         currentFrame: 0,
         currentImage: (index) => getImageUrl(index),
     };
+    const defaultCarImage = new Image();
+    defaultCarImage.src = defaultCarAnimationImageSource;
 
     function getImageUrl(index: number) {
         return new URL(
@@ -74,7 +77,7 @@ export default function CarRotationSequence() {
         // Empty the images array
         carRotationSequenceData.images.length = 0;
 
-        for (let i = 1; i <= carRotationSequenceData.totalFrames; i++) {
+        for (let i = 200; i <= carRotationSequenceData.totalFrames; i++) {
             const img = new Image();
             img.src = carRotationSequenceData.currentImage(i);
             carRotationSequenceData.images.push(img);
@@ -83,7 +86,17 @@ export default function CarRotationSequence() {
 
     function render(currentFrame: number) {
         const context = ref?.current?.getContext("2d");
-        const img = carRotationSequenceData.images[currentFrame];
+        const img = handleLoadingImg(carRotationSequenceData.images[currentFrame]);
+
+        // Test if loading of currentFrame image failed to set default image
+        function handleLoadingImg(imgElement: HTMLImageElement) {
+            const loadingImage = carRotationSequenceData.images[currentFrame];
+            if (loadingImage) {
+                return defaultCarImage;
+            }
+            return loadingImage;
+        }
+
         if (!context || !img) {
             return;
         }
