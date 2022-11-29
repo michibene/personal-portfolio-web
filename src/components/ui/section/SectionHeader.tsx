@@ -35,7 +35,7 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
     });
 
     return (
-        <h1 id={id} className="mb-16 md:mb-24 sectionHeader">
+        <h1 id={id} className="my-16 md:my-24 sectionHeader">
             {title}
         </h1>
     );

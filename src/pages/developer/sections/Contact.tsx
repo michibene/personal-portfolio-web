@@ -1,8 +1,9 @@
+import SectionFullHeight from "ui/section/SectionFullHeight";
 import SectionHeader from "ui/section/SectionHeader";
 
 export default function Contact() {
     return (
-        <section className="my-32 md:mt-4 8md:mb-32 flex flex-col">
+        <SectionFullHeight>
             <SectionHeader id="contact-me" title="Contact me" />
 
             <div>
@@ -11,7 +12,7 @@ export default function Contact() {
                     to further communication.
                 </p>
 
-                <ul className="clickableLink bigger-underline-offset mt-24 md:mt-32 space-y-8 md:space-y-14 md:ml-[25vw] text-2xl md:text-4xl font-semibold">
+                <ul className="clickableLink bigger-underline-offset my-24 md:my-32 space-y-8 md:space-y-14 md:ml-[25vw] text-2xl md:text-4xl font-semibold">
                     <li>
                         <a href="mailto: hello@michalbeno.eu?subject = Hello from Website">hello@michalbeno.eu</a>
                     </li>
@@ -27,6 +28,6 @@ export default function Contact() {
                     </li>
                 </ul>
             </div>
-        </section>
+        </SectionFullHeight>
     );
 }

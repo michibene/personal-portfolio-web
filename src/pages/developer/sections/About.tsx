@@ -3,7 +3,7 @@ import SectionHeader from "ui/section/SectionHeader";
 
 export default function About() {
     return (
-        <SectionFullHeight classNameProps="mt-32 md:mt-48">
+        <SectionFullHeight classNameProps="mt-20 md:mt-28">
             <SectionHeader id="about" title="About" />
 
             <div className="grow flex items-center">
