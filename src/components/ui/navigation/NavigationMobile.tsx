@@ -7,7 +7,7 @@ interface NavbarMobileProps {
 }
 
 export default function NavbarMobile({ handleMenuOpen, isMenuOpen }: NavbarMobileProps) {
-    // Toggle which icon to show (hamburger menu VS. close)
+    // Toggle which icon to show (hamburger menu vs. close)
     function Icon() {
         if (!isMenuOpen) {
             return (

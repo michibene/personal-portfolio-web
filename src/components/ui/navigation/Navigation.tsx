@@ -1,12 +1,20 @@
 import NavbarMenu from "navigation/parts/NavbarMenu";
 import NavigationMobile from "navigation/NavigationMobile";
 import { useState } from "react";
+import { useScrollLock } from "navigation/UseScrollLock";
 
 export default function Navigation() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [blockScroll, allowScroll] = useScrollLock();
 
     function toggleMobileMenuShowing() {
-        setIsMobileMenuOpen(!isMobileMenuOpen);
+        if (!isMobileMenuOpen) {
+            blockScroll();
+            setIsMobileMenuOpen(true);
+        } else {
+            allowScroll();
+            setIsMobileMenuOpen(false);
+        }
     }
 
     return (
