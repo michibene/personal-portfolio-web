@@ -18,12 +18,12 @@ export default function Contact() {
                     </li>
                     <li>
                         <a href="https://github.com/michibene" target="_blank" rel="noopener noreferrer">
-                            Github
+                            Github &#8599;
                         </a>
                     </li>
                     <li>
                         <a href="https://www.linkedin.com/in/michal-benoo/" target="_blank" rel="noopener noreferrer">
-                            LinkedIn
+                            LinkedIn &#8599;
                         </a>
                     </li>
                 </ul>

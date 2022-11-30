@@ -1,13 +1,40 @@
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
 import SectionFullHeight from "ui/section/SectionFullHeight";
 import SectionHeader from "ui/section/SectionHeader";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
+    const ref = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const ctx = gsap.context(() => {
+            gsap.fromTo(
+                ref.current,
+                { opacity: 0 },
+                {
+                    opacity: 1,
+                    duration: 1.1,
+                    ease: "power1.inOut",
+                    scrollTrigger: {
+                        trigger: ref.current,
+                        start: "top 80%",
+                        end: "bottom 0%",
+                    },
+                }
+            );
+        }, ref);
+        return () => ctx.revert();
+    }, []);
+
     return (
         <SectionFullHeight classNameProps="mt-20 md:mt-28">
             <SectionHeader id="about" title="About" />
 
             <div className="grow flex items-center">
-                <div className="md:ml-[25vw]">
+                <div ref={ref} className="md:ml-[25vw] ">
                     <p className="bigger-thin">I'm a 31 year old junior developer,</p>
                     <p className="bigger-thin mb-16 md:mb-28">
                         a perfectionist and a self-taught designer. Living in Košice.

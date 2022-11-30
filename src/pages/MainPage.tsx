@@ -8,8 +8,13 @@ function MainPage() {
             <Navigation />
 
             <div className="fullscreen-without-header flex flex-col md:flex-row justify-evenly md:justify-between md:items-center gap-6 md:gap-6">
-                <a href="" className="self-start mt-4 md:mt-32 hover:text-developerBlue">
-                    <h1 className="text-6xl lg:text-7xl xl:text-8xl">Developer, Designer</h1>
+                <a href="" className="self-start mt-4 md:mt-32">
+                    <h1
+                        className="text-6xl lg:text-7xl xl:text-8xl
+                        hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-developerBlue hover:to-developerBlueDark"
+                    >
+                        Developer, Designer
+                    </h1>
                 </a>
 
                 <div className="self-center max-w-[22vh]">
@@ -20,8 +25,13 @@ function MainPage() {
                     ></img>
                 </div>
 
-                <a href="" className="self-end mb-4 md:mb-32 hover:text-landscapeGreen text-right">
-                    <h1 className="text-6xl lg:text-7xl xl:text-8xl">Landscape architect</h1>
+                <a href="" className="self-end mb-4 md:mb-32">
+                    <h1
+                        className="text-6xl lg:text-7xl xl:text-8xl text-right
+                        hover:text-landscapeGreen hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-landscapeGreen hover:to-landscapeGreenDark"
+                    >
+                        Landscape architect
+                    </h1>
                 </a>
             </div>
 

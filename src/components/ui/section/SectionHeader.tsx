@@ -27,7 +27,7 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
             duration: 0.3,
             scrollTrigger: {
                 trigger: header,
-                start: "top bottom",
+                start: "top 80%",
                 end: "bottom 10%",
                 scrub: false,
             },
@@ -35,7 +35,7 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
     });
 
     return (
-        <h1 id={id} className="mb-16 md:mb-24 pt-16 md:pt-24 sectionHeader">
+        <h1 id={id} className="mb-16 md:mb-24 pt-16 sectionHeader">
             {title}
         </h1>
     );
