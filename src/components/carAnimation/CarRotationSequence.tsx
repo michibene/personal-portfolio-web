@@ -77,7 +77,7 @@ export default function CarRotationSequence() {
         // Empty the images array
         carRotationSequenceData.images.length = 0;
 
-        for (let i = 200; i <= carRotationSequenceData.totalFrames; i++) {
+        for (let i = 1; i <= carRotationSequenceData.totalFrames; i++) {
             const img = new Image();
             img.src = carRotationSequenceData.currentImage(i);
             carRotationSequenceData.images.push(img);
@@ -90,11 +90,12 @@ export default function CarRotationSequence() {
 
         // Test if loading of currentFrame image failed to set default image
         function handleLoadingImg(imgElement: HTMLImageElement) {
-            const loadingImage = carRotationSequenceData.images[currentFrame];
-            if (loadingImage) {
+            return imgElement;
+            /*  const loadingImage = imgElement;
+            if (!loadingImage) {
                 return defaultCarImage;
             }
-            return loadingImage;
+            return loadingImage; */
         }
 
         if (!context || !img) {
