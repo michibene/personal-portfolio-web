@@ -1,8 +1,8 @@
-import Navigation from "navigation/Navigation";
-import characterImg from "images/02_Self_3D_Character_TELO_Front.png";
 import DeveloperSections from "developer/sections/index";
+import characterImg from "images/02_Self_3D_Character_TELO_Front.png";
+import Navigation from "navigation/Navigation";
 
-function MainPage() {
+export default function MainPage() {
     return (
         <div className="max-w-7xl mx-auto min-h-screen px-5">
             <Navigation />
@@ -39,5 +39,3 @@ function MainPage() {
         </div>
     );
 }
-
-export default MainPage;

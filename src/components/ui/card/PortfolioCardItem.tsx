@@ -1,3 +1,4 @@
+import portfolioWorksImagesUrls from "data/developer/cachedImagesSources";
 import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
 
 export default function PortfolioCardItem({
@@ -9,16 +10,15 @@ export default function PortfolioCardItem({
     justifyTo,
     smallerSize,
 }: PortfolioItemProps) {
-    // Get full, resolved URL of a static image asset (to properly build path)
-    function getImageUrl(imgName: string) {
-        return new URL(`/src/assets/images/works/${imgName}.png`, import.meta.url).href;
+    function getImageUrl(imgName: string, imagesUrlsArray: string[]) {
+        return imagesUrlsArray.find((element) => element.toLowerCase().includes(imgName.toLowerCase()));
     }
 
     return (
         <div className={`flex ${justifyTo}`}>
             <div className={`group ${smallerSize ? "w-[80%]" : "w-full"} break-inside-avoid relative`}>
                 <div className={"p-6 md:p-8 md:group-hover:brightness-30"} style={{ backgroundColor: backgroundColor }}>
-                    <img src={getImageUrl(imgName)} alt={`${title} project`} className="shadow-xl" />
+                    <img src={getImageUrl(imgName, portfolioWorksImagesUrls)} alt={`${title} project`} className="shadow-xl" />
                     <div className="flex gap-4 mt-8 md:mt-10 text-black">
                         <p className="text-3xl w-">{String(id).padStart(2, "0")}</p>
                         <p className="text-3xl font-bold">{title}</p>
