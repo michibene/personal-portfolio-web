@@ -1,7 +1,7 @@
 import SpinnerLoader from "components/ui/SpinnerLoader";
 import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
 import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
-import MainPage from "pages/MainPage";
+import LandingPage from "pages/LandingPage";
 import useImagePreloader from "utilities/useImagePreloader";
 
 export default function Web() {
@@ -19,7 +19,7 @@ export default function Web() {
                     </div>
                 </SpinnerLoader>
             ) : (
-                <MainPage />
+                <LandingPage />
             )}
         </>
     );

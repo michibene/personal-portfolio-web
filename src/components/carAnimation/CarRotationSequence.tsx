@@ -57,7 +57,7 @@ export default function CarRotationSequence() {
                     start: "top 40%",
                     end: `bottom+=${carRotationSequenceData.totalFrames * carRotationSequenceData.timeMultiplicand}`,
                     scrub: 0.7,
-                    markers: { startColor: "orange", endColor: "cyan" },
+                    /* markers: { startColor: "orange", endColor: "cyan" }, */
                 },
                 onUpdate: () => render(carRotationSequenceData.currentFrame),
             });

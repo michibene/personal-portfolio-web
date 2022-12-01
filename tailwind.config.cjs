@@ -7,7 +7,7 @@ module.exports = {
                 developerBlue: "#6f73d9",
                 developerBlueDark: "#6e38a8",
                 landscapeGreen: "#50b590",
-                landscapeGreenDark: "#0a5b5e",
+                landscapeGreenDark: "#14878e",
                 black: "#0f0f11",
             },
             brightness: {
