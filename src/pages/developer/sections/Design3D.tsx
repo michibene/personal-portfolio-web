@@ -51,7 +51,7 @@ export default function Design3D() {
 
             <div className="w-full md:w-2/3 mx-auto">
                 <div className="aspect-w-16 aspect-h-9">
-                    {/* <iframe
+                    <iframe
                         width="560"
                         height="315"
                         src="https://www.youtube.com/embed/DJA4DQQMRg4"
@@ -59,7 +59,7 @@ export default function Design3D() {
                         frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
-                    ></iframe> */}
+                    ></iframe>
                 </div>
             </div>
         </SectionFullHeight>

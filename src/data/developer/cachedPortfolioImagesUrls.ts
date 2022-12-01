@@ -3,7 +3,7 @@ import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
 
 const portfolioWorksImagesUrls: string[] = [];
 
-function populateImagesArray() {
+function populatePortfolioImagesArray() {
     const portfolioItems: PortfolioItemProps[] = developerWorks;
 
     // Get full, resolved URL of a static image asset (to properly build path)
@@ -15,6 +15,6 @@ function populateImagesArray() {
         portfolioWorksImagesUrls.push(getPortfolioImageUrl(project.imgName));
     });
 }
-populateImagesArray();
+populatePortfolioImagesArray();
 
 export default portfolioWorksImagesUrls;

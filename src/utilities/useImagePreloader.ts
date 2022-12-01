@@ -10,7 +10,6 @@ function preloadImage(src: string) {
             reject(src);
         };
         img.src = src;
-        console.log(img);
     });
 }
 

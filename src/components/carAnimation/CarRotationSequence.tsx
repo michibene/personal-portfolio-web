@@ -3,6 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useEffect, useRef, useState } from "react";
 import useWindowSizeHook, { Size } from "./useWindowSizeHook";
 import defaultCarAnimationImageSource from "images/BMW_Render_animation/0001.png";
+import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,7 +12,6 @@ interface CarRotationSequenceProps {
     timeMultiplicand: number;
     images: HTMLImageElement[];
     currentFrame: number;
-    currentImage: (index: number) => string;
 }
 
 interface ImageSizeProps {
@@ -26,17 +26,9 @@ export default function CarRotationSequence() {
         timeMultiplicand: 5,
         images: [],
         currentFrame: 0,
-        currentImage: (index) => getImageUrl(index),
     };
     const defaultCarImage = new Image();
     defaultCarImage.src = defaultCarAnimationImageSource;
-
-    function getImageUrl(index: number) {
-        return new URL(
-            `/src/assets/images/BMW_Render_animation/${index.toString().padStart(4, "0")}.png`,
-            import.meta.url
-        ).href;
-    }
 
     const windowSize: Size = useWindowSizeHook();
     const defaultImageSize: ImageSizeProps = {
@@ -65,7 +57,7 @@ export default function CarRotationSequence() {
                     start: "top 40%",
                     end: `bottom+=${carRotationSequenceData.totalFrames * carRotationSequenceData.timeMultiplicand}`,
                     scrub: 0.7,
-                    /* markers: { startColor: "orange", endColor: "cyan" }, */
+                    markers: { startColor: "orange", endColor: "cyan" },
                 },
                 onUpdate: () => render(carRotationSequenceData.currentFrame),
             });
@@ -74,30 +66,20 @@ export default function CarRotationSequence() {
     }, [windowSize]);
 
     function generateImagesArray() {
-        // Empty the images array
-        carRotationSequenceData.images.length = 0;
+        if (carRotationSequenceData.images.length !== 0) {
+            return;
+        }
 
         for (let i = 1; i <= carRotationSequenceData.totalFrames; i++) {
             const img = new Image();
-            img.src = carRotationSequenceData.currentImage(i);
+            img.src = carAnimationImagesSources[i - 1];
             carRotationSequenceData.images.push(img);
         }
     }
 
     function render(currentFrame: number) {
         const context = ref?.current?.getContext("2d");
-        const img = handleLoadingImg(carRotationSequenceData.images[currentFrame]);
-
-        // Test if loading of currentFrame image failed to set default image
-        function handleLoadingImg(imgElement: HTMLImageElement) {
-            return imgElement;
-            /*  const loadingImage = imgElement;
-            if (!loadingImage) {
-                return defaultCarImage;
-            }
-            return loadingImage; */
-        }
-
+        const img = carRotationSequenceData.images[currentFrame];
         if (!context || !img) {
             return;
         }
