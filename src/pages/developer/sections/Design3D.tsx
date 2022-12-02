@@ -12,12 +12,11 @@ export default function Design3D() {
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            gsap.to(".trigger-container", {
+            gsap.to("#design-3D", {
                 scrollTrigger: {
-                    trigger: ".trigger-container",
-                    start: "top top",
-                    end: "bottom+=100% top",
-                    scrub: false,
+                    trigger: scrollSectionRef.current,
+                    start: "top 0%",
+                    end: () => "bottom+=100% 0%",
                     pin: true,
                 },
             });
@@ -27,11 +26,11 @@ export default function Design3D() {
 
     return (
         <SectionFullHeight>
-            <div ref={scrollSectionRef}>
-                <div className="trigger-container">
+            <div>
+                <div ref={scrollSectionRef}>
                     <SectionHeader id="design-3D" title="3D Design" />
 
-                    <div className="pinned-text flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-16 md:py-14">
+                    <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-16 md:py-14">
                         <p className="bigger-thin md:w-1/3 text-center md:text-left">
                             Job skill that has become a hobby.
                         </p>

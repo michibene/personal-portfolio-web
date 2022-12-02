@@ -1,4 +1,8 @@
 import { useEffect, useState } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function preloadImage(src: string) {
     return new Promise((resolve, reject) => {
@@ -34,6 +38,10 @@ export default function useImagePreloader(imageList: string[]) {
                 return;
             }
             setImagesPreloaded(true);
+            // Refresh position of car animation start point after preloading images of portfolio works
+            setTimeout(function () {
+                ScrollTrigger.refresh();
+            }, 250);
         }
 
         preloadEffect();
