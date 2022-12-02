@@ -38,4 +38,6 @@ jobs:
                   username: ${{ secrets.HOSTING_FTP_LOGIN }}
                   password: ${{ secrets.HOSTING_FTP_PASSWORD }}
                   server-dir: /michalbeno.eu/web/
+                  protocol: ftps
+                  port: 22
                   timeout: 120000
