@@ -1,4 +1,4 @@
-name: Build and deploy website to FTP on push
+name: Build and deploy website to server on push
 on:
     push:
         branches: ["develop"]
@@ -41,8 +41,3 @@ jobs:
                   source-path: ./dist/
                   destination-path: ~/michalbeno.eu/web/
                   rsync-options: --archive --verbose --compress --human-readable --stats
-
-
-  
-
-   
