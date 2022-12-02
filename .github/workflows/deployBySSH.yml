@@ -41,3 +41,5 @@ jobs:
                   source-path: ./dist/
                   destination-path: ~/michalbeno.eu/web/
                   rsync-options: --archive --verbose --compress --human-readable --stats
+
+
