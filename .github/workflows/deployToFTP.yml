@@ -35,5 +35,5 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with: 
           server: ftp.michalbeno.eu
-          username: ${{ secrets.GITHUBCICD_FTP_LOGIN }}
+          username: ${{ GITHUBCICD_FTP_LOGIN }}
           password: ${{ secrets.GITHUBCICD_FTP_PASSWORD }}
