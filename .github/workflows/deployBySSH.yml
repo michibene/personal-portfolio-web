@@ -32,11 +32,12 @@ jobs:
                   name: dist
                   path: dist
             - name: 📂 Sync files to hosting
-              uses: SamKirkland/FTP-Deploy-Action@4.3.2
+              uses: SamKirkland/web-deploy@v1
               with:
-                  server: ftp.michalbeno.eu
-                  username: ${{ secrets.HOSTING_FTP_LOGIN }}
-                  password: ${{ secrets.HOSTING_FTP_PASSWORD }}
-                  port: 21
-                  timeout: 120000
-                  local-dir: ./dist/
+                  target-server: ${{ secrets.HOSTING_SSH_HOST }}
+                  remote-user: ${{ secrets.HOSTING_SSH_USER_LOGIN }}
+                  private-ssh-key: ${{ HOSTING_SSH_PRIVATE_KEY }}
+                  source-path: ./dist/
+                  ssh-port: ${{ HOSTING_SSH_PORT }}
+                  destination-path: ~/michalbeno.eu/web/
+                  rsync-options: --dry-run --archive --verbose --compress --delete-after --human-readable
