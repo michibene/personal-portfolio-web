@@ -1,42 +1,41 @@
 name: Build and deploy website to FTP on push
-on: 
-  push:
-    branches: [ "develop" ]
+on:
+    push:
+        branches: ["develop"]
 
 jobs:
-  build:
-    name: Build 🔨
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Install dependencies
-        run: npm ci 
-      - name: Build dependencies
-        run: npm run build
-      - name: Archive production artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: dist
-          path: dist
-  deploy:
-    name: Deploy 🚀
-    needs: build
-    runs-on: ubuntu-latest
-    steps: 
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Download artifact
-        uses: actions/download-artifact@main
-        with: 
-          name: dist
-          path: dist
-      - name: 📂 Sync files to hosting
-        uses: SamKirkland/FTP-Deploy-Action@4.3.2
-        with: 
-          server: ftp.michalbeno.eu
-          username: ${{ secrets.HOSTING_FTP_LOGIN }}
-          password: ${{ secrets.HOSTING_FTP_PASSWORD }}
-          protocol: ftps
-          port: 22
-          server-dir: ./michalbeno.eu/web/
+    build:
+        name: Build 🔨
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - name: Install dependencies
+              run: npm ci
+            - name: Build dependencies
+              run: npm run build
+            - name: Archive production artifact
+              uses: actions/upload-artifact@main
+              with:
+                  name: dist
+                  path: dist
+    deploy:
+        name: Deploy 🚀
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - name: Download artifact
+              uses: actions/download-artifact@main
+              with:
+                  name: dist
+                  path: dist
+            - name: 📂 Sync files to hosting
+              uses: SamKirkland/FTP-Deploy-Action@4.3.2
+              with:
+                  server: ftp.michalbeno.eu
+                  username: ${{ secrets.HOSTING_FTP_LOGIN }}
+                  password: ${{ secrets.HOSTING_FTP_PASSWORD }}
+                  server-dir: /michalbeno.eu/web/
+                  timeout: 120000
