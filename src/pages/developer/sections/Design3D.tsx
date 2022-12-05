@@ -30,7 +30,7 @@ export default function Design3D() {
                 <div ref={scrollSectionRef}>
                     <SectionHeader id="design-3D" title="3D Design" />
 
-                    <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-16 md:py-14">
+                    <div className="flex flex-col md:flex-row gap-24 md:gap-16 justify-between items-center py-6 md:py-14">
                         <p className="bigger-thin md:w-1/3 text-center md:text-left">
                             Job skill that has become a hobby.
                         </p>
@@ -40,7 +40,7 @@ export default function Design3D() {
             </div>
 
             <div className="mt-48 mb-28 md:my-40">
-                <p className="text-lg text-left md:text-center">
+                <p className="text-left md:text-center">
                     As a part of landscape architecture, we worked on 3D models of gardens and parks on a daily basis
                     (see some visualizations in the #landscapeArchitect section). This has become my hobby. Later, I've
                     been actively learning the basics of animation in my spare time. Here is a short animation I've made

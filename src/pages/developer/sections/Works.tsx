@@ -33,7 +33,7 @@ export default function Works() {
                     <div key={project.id}>
                         {isTabletOrMobile && (
                             <p
-                                className={`mb-4 text-lg uppercase ${
+                                className={`mb-4 uppercase ${
                                     project.justifyTo == "justify-start" ? "text-left" : "text-right"
                                 }`}
                             >

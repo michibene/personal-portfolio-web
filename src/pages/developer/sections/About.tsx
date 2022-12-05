@@ -37,12 +37,12 @@ export default function About() {
                 <div ref={ref} className="md:ml-[25vw] ">
                     <p className="bigger-thin">I'm a junior developer, a perfectionist </p>
                     <p className="bigger-thin mb-16 md:mb-28">and a self-taught designer. Living in Košice.</p>
-                    <p className="text-lg mb-6">
+                    <p className="mb-6">
                         As a landscape architect I am close to design and 3D modeling. This job taught me how to handle
                         multiple tasks and adhere to strict deadlines. I really like to learn new things and I like
                         graphic design.
                     </p>
-                    <p className="text-lg">
+                    <p>
                         But I've always been curious about how feature-rich web apps work. This curiosity and eagerness
                         resulted in the completion of the junior programmer course - mainly JAVA for start and JS in the
                         project phase (backend & frontend). I would like to continue this journey with my first

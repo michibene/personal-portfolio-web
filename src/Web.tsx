@@ -16,7 +16,7 @@ export default function Web() {
         createRoutesFromElements(
             <Route path="/">
                 <Route index element={<LandingPage />} />
-                <Route path={developerPortfolio[0].linkTo} element={<GFADashboardApp />} />
+                <Route path={developerPortfolio[0].linkTo} element={<GFADashboardApp id={0} />} />
             </Route>
         )
     );

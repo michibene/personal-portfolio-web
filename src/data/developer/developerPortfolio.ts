@@ -8,6 +8,7 @@ export default [
         justifyTo: "justify-end",
         smallerSize: false,
         linkTo: "/GFA-Dashboard-app",
+        projectYear: 2022,
     },
     {
         id: 2,
@@ -18,6 +19,7 @@ export default [
         justifyTo: "justify-start",
         smallerSize: true,
         linkTo: "/",
+        projectYear: 2022,
     },
     {
         id: 3,
@@ -28,6 +30,7 @@ export default [
         justifyTo: "justify-end",
         smallerSize: true,
         linkTo: "/",
+        projectYear: 2022,
     },
     {
         id: 4,
@@ -38,5 +41,6 @@ export default [
         justifyTo: "justify-start",
         smallerSize: false,
         linkTo: "/",
+        projectYear: 2022,
     },
 ];

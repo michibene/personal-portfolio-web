@@ -96,17 +96,22 @@ header .mobileMenu {
     text-underline-offset: 1.5rem;
 }
 
-p.text-lg {
+p {
     line-height: 2rem;
 }
 
 p.bigger-thin {
     font-size: 2rem;
     font-weight: 200;
+    line-height: inherit;
 }
 
 @media (min-width: 768px) {
     p.bigger-thin {
         font-size: 2.8rem;
     }
+}
+
+p.bigger-thin.font-bold {
+    font-weight: 500;
 }

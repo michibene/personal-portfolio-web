@@ -7,7 +7,7 @@ export default function Contact() {
             <SectionHeader id="contact-me" title="Contact me" />
 
             <div>
-                <p className="mt-16 md:ml-[40vw] text-lg">
+                <p className="mt-8 md:mt-16 md:ml-[40vw]">
                     Here are some places where you can contact me or find more information about me. I'm looking forward
                     to further communication.
                 </p>
@@ -17,12 +17,12 @@ export default function Contact() {
                         <a href="mailto: hello@michalbeno.eu?subject = Hello from Website">hello@michalbeno.eu</a>
                     </li>
                     <li>
-                        <a href="https://github.com/michibene" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/michibene" target="_blank" rel="noopener">
                             Github &#8599;
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.linkedin.com/in/michal-benoo/" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/michal-benoo/" target="_blank" rel="noopener">
                             LinkedIn &#8599;
                         </a>
                     </li>

@@ -8,7 +8,8 @@ module.exports = {
                 developerBlueDark: "#6e38a8",
                 landscapeGreen: "#50b590",
                 landscapeGreenDark: "#14878e",
-                black: "#0f0f11",
+                customBlack: "#0f0f11",
+                customWhite: "#d9d8d0",
             },
             brightness: {
                 25: ".25",
