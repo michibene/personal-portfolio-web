@@ -48,6 +48,7 @@ export default function Works() {
                             techStack={project.techStack}
                             justifyTo={project.justifyTo}
                             smallerSize={project.smallerSize}
+                            linkTo={project.linkTo}
                         />
                     </div>
                 ))}

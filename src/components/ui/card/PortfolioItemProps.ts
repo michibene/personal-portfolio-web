@@ -6,4 +6,5 @@ export interface PortfolioItemProps {
     techStack: string;
     justifyTo: string;
     smallerSize: boolean;
+    linkTo: string;
 }

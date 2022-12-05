@@ -1,8 +1,15 @@
 import DeveloperSections from "developer/sections/index";
 import characterImg from "images/02_Self_3D_Character_TELO_Front.png";
 import Navigation from "navigation/Navigation";
+import { useEffect } from "react";
+import { scrollTriggerRefreshAction } from "utilities/scrollTriggerRefresh";
 
 export default function LandingPage() {
+    useEffect(() => {
+        // Refresh position of car animation start point after preloading images of portfolio works
+        scrollTriggerRefreshAction();
+    }, []);
+
     return (
         <div className="max-w-7xl mx-auto min-h-screen px-5">
             <Navigation />

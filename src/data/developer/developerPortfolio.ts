@@ -7,6 +7,7 @@ export default [
         techStack: "NodeJS, Express, JWT, PostgreSQL, React, TypeScript, Bootstrap",
         justifyTo: "justify-end",
         smallerSize: false,
+        linkTo: "/GFA-Dashboard-app",
     },
     {
         id: 2,
@@ -16,6 +17,7 @@ export default [
         techStack: "JAVA, Spring Boot, Thymeleaf, MySQL",
         justifyTo: "justify-start",
         smallerSize: true,
+        linkTo: "/",
     },
     {
         id: 3,
@@ -25,6 +27,7 @@ export default [
         techStack: "JAVA",
         justifyTo: "justify-end",
         smallerSize: true,
+        linkTo: "/",
     },
     {
         id: 4,
@@ -34,5 +37,6 @@ export default [
         techStack: "JAVA, Spring Boot, Thymeleaf",
         justifyTo: "justify-start",
         smallerSize: false,
+        linkTo: "/",
     },
 ];

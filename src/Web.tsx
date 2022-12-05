@@ -1,26 +1,25 @@
-import SpinnerLoader from "components/ui/SpinnerLoader";
 import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
 import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
+import developerPortfolio from "data/developer/developerPortfolio";
+import GFADashboardApp from "pages/developer/works/GFADashboardApp";
 import LandingPage from "pages/LandingPage";
+import PreloadingPage from "pages/PreloadingPage";
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
 import useImagePreloader from "utilities/useImagePreloader";
 
 export default function Web() {
     // Join images sources arrays to preload all of them
     const allImagesUrls: string[] = [...new Set([...portfolioWorksImagesUrls, ...carAnimationImagesSources])];
-    const { imagesPreloaded } = useImagePreloader(allImagesUrls);
+    const { isImagesPreloaded } = useImagePreloader(allImagesUrls);
 
-    return (
-        <>
-            {!imagesPreloaded ? (
-                <SpinnerLoader>
-                    <div className="mb-20 lg:mb-28 text-center uppercase font-bold font text-4xl lg:text-5xl">
-                        <p className="pb-2 lg:pb-5">Michal Beno</p>
-                        <p>Portfolio ©2022</p>
-                    </div>
-                </SpinnerLoader>
-            ) : (
-                <LandingPage />
-            )}
-        </>
+    const router = createBrowserRouter(
+        createRoutesFromElements(
+            <Route path="/">
+                <Route index element={<LandingPage />} />
+                <Route path={developerPortfolio[0].linkTo} element={<GFADashboardApp />} />
+            </Route>
+        )
     );
+
+    return <>{!isImagesPreloaded ? <PreloadingPage /> : <RouterProvider router={router} />}</>;
 }
