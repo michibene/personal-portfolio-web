@@ -5,7 +5,7 @@ import EBDashboardUser from "images/works/GFA_dashboard_app/EB_dashboard_user.pn
 import EBLogin1 from "images/works/GFA_dashboard_app/EB_Login_1.png";
 import EBLogin2 from "images/works/GFA_dashboard_app/EB_Login_2.png";
 import iPhoneDashboardGif from "images/works/GFA_dashboard_app/iPhone-mobile-version.gif";
-import { useNavigate } from "react-router-dom";
+import { ScrollRestoration, useNavigate } from "react-router-dom";
 import WorksSectionSummary from "ui/section/WorksSectionSummary";
 
 export default function GFADashboardApp({ id }: { id: number }) {
@@ -70,6 +70,7 @@ export default function GFADashboardApp({ id }: { id: number }) {
                     <CloseButton />
                 </button>
             </div>
+            <ScrollRestoration />
         </div>
     );
 }
