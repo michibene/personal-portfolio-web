@@ -21,6 +21,7 @@
             "navigation/*": ["./components/ui/navigation/*"],
             "ui/section/*": ["./components/ui/section/*"],
             "ui/card/*": ["./components/ui/card/*"],
+            "character3D/*": ["./components/character3D/*"],
             "data/developer/*": ["./data/developer/*"],
             "developer/sections/*": ["./pages/developer/sections/*"],
             "utilities/*": ["./utilities/*"]

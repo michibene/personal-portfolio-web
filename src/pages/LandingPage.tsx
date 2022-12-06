@@ -1,3 +1,4 @@
+import Canvas3D from "components/character3D/Canvas3D";
 import DeveloperSections from "developer/sections/index";
 import characterImg from "images/02_Self_3D_Character_TELO_Front.png";
 import Navigation from "navigation/Navigation";
@@ -13,6 +14,10 @@ export default function LandingPage() {
     return (
         <div className="max-w-7xl mx-auto min-h-screen px-5">
             <Navigation />
+
+            <div className="h-[70vh] border-2">
+                <Canvas3D />
+            </div>
 
             <div className="fullscreen-without-header flex flex-col md:flex-row justify-evenly md:justify-between md:items-center gap-6 md:gap-6">
                 <div className="self-start mt-4 md:mt-32 cursor-default">
