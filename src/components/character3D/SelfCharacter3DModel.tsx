@@ -16,7 +16,9 @@ export default function SelfCharacter3DModel() {
     useEffect(() => {
         gltf.scene.traverse((object) => {
             if (object instanceof Mesh) {
-                object.castShadow = true;
+                object.material.color.set(0xd9d8d0);
+                object.material.roughness = 0.8;
+                object.castShadow = false;
                 object.receiveShadow = true;
             }
         });
