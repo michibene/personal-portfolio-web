@@ -18,6 +18,7 @@
         "baseUrl": "./src",
         "paths": {
             "images/*": ["./assets/images/*"],
+            "models/*": ["./assets/models/*"],
             "navigation/*": ["./components/ui/navigation/*"],
             "ui/section/*": ["./components/ui/section/*"],
             "ui/card/*": ["./components/ui/card/*"],
