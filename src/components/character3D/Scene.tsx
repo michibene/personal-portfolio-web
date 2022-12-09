@@ -7,6 +7,14 @@ import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import { angleToRadians } from "utilities/helpers";
 
 export default function Scene() {
+    const lightLeftColor = { color: "#e5e5d4" };
+    const lightRightColor = { color: "#3f3fa8" };
+    const orbitControlsDefault = {
+        minAzimuthAngle: angleToRadians(-70),
+        maxAzimuthAngle: angleToRadians(75),
+        autoRotateSpeed: 2,
+    };
+
     const lightLeftRef = useRef<SpotLight>(null!);
     const lightRightRef = useRef<SpotLight>(null!);
     const lightFrontRef = useRef<PointLight>(null!);
@@ -21,17 +29,9 @@ export default function Scene() {
     const cameraFolder = gui.addFolder("CAMERA");
     const leftLightFolder = gui.addFolder("LEFT light");
     const rightLightFolder = gui.addFolder("RIGHT light");
-    const frontLightFolder = gui.addFolder("FRONT light"); */
+    const frontLightFolder = gui.addFolder("FRONT light"); 
 
-    const lightLeftColor = { color: "#e5e5d4" };
-    const lightRightColor = { color: "#3f3fa8" };
-    const orbitControlsDefault = {
-        minAzimuthAngle: angleToRadians(-70),
-        maxAzimuthAngle: angleToRadians(75),
-        autoRotateSpeed: 2,
-    };
-
-    /* useEffect(() => {
+    useEffect(() => {
         cameraFolder.add(cameraRef.current["position"], "x").name("camera x").step(0.01);
         cameraFolder.add(cameraRef.current["position"], "y").name("camera y").step(0.01);
         cameraFolder.add(cameraRef.current["position"], "z").name("camera z").step(0.01);
@@ -81,7 +81,7 @@ export default function Scene() {
             <PerspectiveCamera ref={cameraRef} makeDefault={true} fov={50} position={[0.14, 1.57, 1.8]} />
             <OrbitControls
                 ref={orbitControlsRef}
-                target={[0, 1, 0]}
+                target={[0, 0.95, 0]}
                 minDistance={1.3}
                 maxDistance={5}
                 minPolarAngle={angleToRadians(15)}
@@ -89,7 +89,7 @@ export default function Scene() {
                 minAzimuthAngle={orbitControlsDefault.minAzimuthAngle}
                 maxAzimuthAngle={orbitControlsDefault.maxAzimuthAngle}
                 panSpeed={1.1}
-                rotateSpeed={0.5}
+                rotateSpeed={0.9}
                 autoRotate={true}
                 autoRotateSpeed={orbitControlsDefault.autoRotateSpeed}
             />

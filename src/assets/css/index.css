@@ -39,6 +39,10 @@ h1 {
     line-height: 1.3;
 }
 
+h1.line-height-1 {
+    line-height: 1.2;
+}
+
 h1.sectionHeader {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
@@ -60,9 +64,13 @@ h1.sectionHeader .splitChar {
     h1 {
         font-size: 7rem;
     }
+    h1.line-height-1 {
+        line-height: 1.1;
+    }
     h1.sectionHeader .splitChar {
         transform: translateY(8rem);
     }
+
 }
 
 .fullscreen-without-header {
@@ -114,4 +122,16 @@ p.bigger-thin {
 
 p.bigger-thin.font-bold {
     font-weight: 500;
+}
+
+.text-stroke-1 {
+    -webkit-text-stroke: 0.5px var(--color-black);
+    text-stroke: 0.5px var(--color-black);
+}
+
+@media (min-width: 768px) {
+    .text-stroke-1 {
+        -webkit-text-stroke: initial;
+        text-stroke: initial;
+    }
 }

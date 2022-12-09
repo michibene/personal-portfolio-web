@@ -15,32 +15,28 @@ export default function LandingPage() {
         <div className="max-w-7xl mx-auto min-h-screen px-5">
             <Navigation />
 
-            <div className="h-[70vh] border-2">
-                <Canvas3D />
-            </div>
-
-            <div className="fullscreen-without-header flex flex-col md:flex-row justify-evenly md:justify-between md:items-center gap-6 md:gap-6">
+            <div className="z-0 relative fullscreen-without-header flex flex-col md:flex-row justify-around md:justify-between md:items-center gap-6">
                 <div className="self-start mt-4 md:mt-32 cursor-default">
                     <h1
-                        className="text-6xl lg:text-7xl xl:text-8xl
-                        hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-developerBlue hover:to-developerBlueDark"
+                        className="text-6xl lg:text-7xl xl:text-8xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] md:drop-shadow-[0_2px_7px_rgba(0,0,0,0.7)]
+                        text-transparent bg-clip-text bg-gradient-to-br from-developerBlue to-developerBlueDark
+                        font-extrabold md:font-semibold text-stroke-1 line-height-1
+                        md:text-customWhite hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-developerBlue hover:to-developerBlueDark"
                     >
                         Developer, Designer
                     </h1>
                 </div>
 
-                <div className="self-center max-w-[22vh]">
-                    <img
-                        src={characterImg}
-                        alt="3D self model"
-                        className="object-cover md:object-contain object-top h-[40vh] w-[80vw] md:h-auto "
-                    ></img>
+                <div className="-z-10 absolute fullscreen-without-header w-[80vw] md:max-w-[60vw] inset-0 md:inset-y-0 md:left-[50%] md:translate-x-[-50%]">
+                    <Canvas3D />
                 </div>
 
                 <div className="self-end mb-4 md:mb-32 cursor-default">
                     <h1
-                        className="text-6xl lg:text-7xl xl:text-8xl text-right
-                        hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-landscapeGreen hover:to-landscapeGreenDark"
+                        className="text-6xl lg:text-7xl xl:text-8xl text-right md:drop-shadow-[0_2px_7px_rgba(0,0,0,0.7)]
+                        text-transparent bg-clip-text bg-gradient-to-r from-landscapeGreen to-landscapeGreenDark
+                        font-extrabold md:font-semibold text-stroke-1  line-height-1
+                        md:text-customWhite hover:text-landscapeGreen hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-landscapeGreen hover:to-landscapeGreenDark"
                     >
                         Landscape architect
                     </h1>
