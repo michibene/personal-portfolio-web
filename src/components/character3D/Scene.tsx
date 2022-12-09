@@ -1,4 +1,4 @@
-import { OrbitControls, OrbitControlsProps, PerspectiveCamera, useHelper } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { PointLight, PointLightHelper, SpotLight, SpotLightHelper } from "three";
 import * as dat from "dat.gui";
@@ -13,17 +13,18 @@ export default function Scene() {
     const cameraRef = useRef(null!);
     const orbitControlsRef = useRef<OrbitControlsImpl>(null!);
 
-    /*  useHelper(lightLeftRef, SpotLightHelper);
+    /* useHelper(lightLeftRef, SpotLightHelper);
     useHelper(lightRightRef, SpotLightHelper);
     useHelper(lightFrontRef, PointLightHelper);
 
     const gui = new dat.GUI();
+    const cameraFolder = gui.addFolder("CAMERA");
     const leftLightFolder = gui.addFolder("LEFT light");
     const rightLightFolder = gui.addFolder("RIGHT light");
     const frontLightFolder = gui.addFolder("FRONT light"); */
 
     const lightLeftColor = { color: "#e5e5d4" };
-    const lightRightColor = { color: "#60609d" };
+    const lightRightColor = { color: "#3f3fa8" };
     const orbitControlsDefault = {
         minAzimuthAngle: angleToRadians(-70),
         maxAzimuthAngle: angleToRadians(75),
@@ -31,11 +32,11 @@ export default function Scene() {
     };
 
     /* useEffect(() => {
-        gui.add(cameraRef.current["position"], "x").name("camera x").step(0.01);
-        gui.add(cameraRef.current["position"], "y").name("camera y").step(0.01);
-        gui.add(cameraRef.current["position"], "z").name("camera z").step(0.01);
+        cameraFolder.add(cameraRef.current["position"], "x").name("camera x").step(0.01);
+        cameraFolder.add(cameraRef.current["position"], "y").name("camera y").step(0.01);
+        cameraFolder.add(cameraRef.current["position"], "z").name("camera z").step(0.01);
 
-        leftLightFolder.add(lightLeftRef.current, "intensity").min(0).step(0.01);
+        leftLightFolder.add(lightLeftRef.current, "intensity").min(0);
         leftLightFolder.add(lightLeftRef.current["position"], "x").name("position x").step(0.1);
         leftLightFolder.add(lightLeftRef.current["position"], "y").name("position y").step(0.1);
         leftLightFolder.add(lightLeftRef.current["position"], "z").name("position z").step(0.1);
@@ -44,7 +45,7 @@ export default function Scene() {
         });
         leftLightFolder.open();
 
-        rightLightFolder.add(lightRightRef.current, "intensity").min(0).step(0.01);
+        rightLightFolder.add(lightRightRef.current, "intensity").min(0);
         rightLightFolder.add(lightRightRef.current["position"], "x").name("position x").step(0.1);
         rightLightFolder.add(lightRightRef.current["position"], "y").name("position y").step(0.1);
         rightLightFolder.add(lightRightRef.current["position"], "z").name("position z").step(0.1);
@@ -53,7 +54,7 @@ export default function Scene() {
         });
         rightLightFolder.open();
 
-        frontLightFolder.add(lightFrontRef.current, "intensity").min(0).step(0.01);
+        frontLightFolder.add(lightFrontRef.current, "intensity").min(0);
         frontLightFolder.add(lightFrontRef.current["position"], "x").name("position x").step(0.1);
         frontLightFolder.add(lightFrontRef.current["position"], "y").name("position y").step(0.1);
         frontLightFolder.add(lightFrontRef.current["position"], "z").name("position z").step(0.1);
@@ -89,14 +90,14 @@ export default function Scene() {
                 maxAzimuthAngle={orbitControlsDefault.maxAzimuthAngle}
                 panSpeed={1.1}
                 rotateSpeed={0.5}
-                autoRotate
+                autoRotate={true}
                 autoRotateSpeed={orbitControlsDefault.autoRotateSpeed}
             />
 
             <spotLight
                 ref={lightLeftRef}
                 color={lightLeftColor.color}
-                intensity={2.5}
+                intensity={2.3}
                 position={[-7.5, 9.8, 7.8]}
                 angle={0.6}
                 penumbra={0.5}
@@ -106,20 +107,14 @@ export default function Scene() {
             <spotLight
                 ref={lightRightRef}
                 color={lightRightColor.color}
-                intensity={2.5}
-                position={[5, 5, 1]}
+                intensity={8}
+                position={[4.4, 3.5, -0.6]}
                 angle={0.6}
                 penumbra={0.5}
                 castShadow
                 shadow-bias={-0.0001}
             />
-            <pointLight
-                ref={lightFrontRef}
-                intensity={0.55}
-                position={[0.9, 1.5, 5]}
-                castShadow
-                shadow-bias={-0.0001}
-            />
+            <pointLight ref={lightFrontRef} intensity={0.1} position={[0.9, 1.5, 5]} castShadow shadow-bias={-0.0001} />
         </>
     );
 }
