@@ -23,7 +23,8 @@ export default function LandingPage() {
                         font-extrabold md:font-semibold text-stroke-1 line-height-1
                         md:text-customWhite hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-developerBlue hover:to-developerBlueDark"
                     >
-                        Developer, Designer
+                        Developer, <br />
+                        Designer
                     </h1>
                 </div>
 
@@ -33,12 +34,13 @@ export default function LandingPage() {
 
                 <div className="self-end mb-4 md:mb-32 cursor-default">
                     <h1
-                        className="text-6xl lg:text-7xl xl:text-8xl text-right md:drop-shadow-[0_2px_7px_rgba(0,0,0,0.7)]
+                        className="text-6xl lg:text-7xl xl:text-8xl text-right drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] md:drop-shadow-[0_2px_7px_rgba(0,0,0,0.7)]
                         text-transparent bg-clip-text bg-gradient-to-r from-landscapeGreen to-landscapeGreenDark
-                        font-extrabold md:font-semibold text-stroke-1  line-height-1
+                        font-extrabold md:font-semibold text-stroke-1 line-height-1
                         md:text-customWhite hover:text-landscapeGreen hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-landscapeGreen hover:to-landscapeGreenDark"
                     >
-                        Landscape architect
+                        Landscape <br />
+                        architect
                     </h1>
                 </div>
             </div>

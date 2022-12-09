@@ -12,7 +12,7 @@ export default function Scene() {
     const orbitControlsDefault = {
         minAzimuthAngle: angleToRadians(-70),
         maxAzimuthAngle: angleToRadians(75),
-        autoRotateSpeed: 2,
+        autoRotateSpeed: 1.2,
     };
 
     const lightLeftRef = useRef<SpotLight>(null!);
@@ -62,8 +62,9 @@ export default function Scene() {
     }, []); */
 
     // Hook to get access to the current frame in three js
-    useFrame(() => {
-        if (!!orbitControlsRef.current) {
+    useFrame((state, delta) => {
+        delta = orbitControlsDefault.autoRotateSpeed;
+        if (orbitControlsRef.current) {
             // Change rotation to the opposite side on the orbit controls limits
             if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.minAzimuthAngle) {
                 orbitControlsRef.current.autoRotateSpeed = -orbitControlsDefault.autoRotateSpeed;
@@ -71,8 +72,6 @@ export default function Scene() {
             if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.maxAzimuthAngle) {
                 orbitControlsRef.current.autoRotateSpeed = orbitControlsDefault.autoRotateSpeed;
             }
-
-            orbitControlsRef.current.update();
         }
     });
 
@@ -90,7 +89,7 @@ export default function Scene() {
                 maxAzimuthAngle={orbitControlsDefault.maxAzimuthAngle}
                 panSpeed={1.1}
                 rotateSpeed={0.9}
-                autoRotate={true}
+                autoRotate={false}
                 autoRotateSpeed={orbitControlsDefault.autoRotateSpeed}
             />
 
