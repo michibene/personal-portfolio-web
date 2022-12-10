@@ -1,6 +1,5 @@
 import Canvas3D from "components/character3D/Canvas3D";
 import DeveloperSections from "developer/sections/index";
-import characterImg from "images/02_Self_3D_Character_TELO_Front.png";
 import Navigation from "navigation/Navigation";
 import { useEffect } from "react";
 import { scrollTriggerRefreshAction } from "utilities/scrollTriggerRefresh";
