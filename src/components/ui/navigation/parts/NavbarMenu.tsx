@@ -1,13 +1,13 @@
 export default function NavbarMenu() {
     return (
         <>
-            <a href="#about" className="block">
+            <a href="#about" className="block font-medium">
                 About
             </a>
-            <a href="#works" className="block">
+            <a href="#works" className="block font-medium">
                 Works
             </a>
-            <a href="#contact-me" className="block">
+            <a href="#contact-me" className="block font-medium">
                 Contact
             </a>
         </>

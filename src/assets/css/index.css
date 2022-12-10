@@ -4,7 +4,7 @@
 
 :root {
     --color-black: #0f0f11;
-    --color-white: #d9d8d0;
+    --color-white: #d9d8d1;
     --color-blue: #6f73d9;
     --color-green: #50b590;
 }
@@ -35,8 +35,12 @@ h6 {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 4.5rem;
     line-height: 1.3;
+}
+
+h1.line-height-1 {
+    line-height: 1.2;
 }
 
 h1.sectionHeader {
@@ -60,9 +64,13 @@ h1.sectionHeader .splitChar {
     h1 {
         font-size: 7rem;
     }
+    h1.line-height-1 {
+        line-height: 1.1;
+    }
     h1.sectionHeader .splitChar {
         transform: translateY(8rem);
     }
+
 }
 
 .fullscreen-without-header {
@@ -78,7 +86,7 @@ header .mobileMenu {
     height: 100vh;
     width: 100vw;
 
-    padding: 0rem 1.25rem 4rem;
+    padding: 0rem 1.25rem 5rem;
     overflow: hidden;
     z-index: 999;
 
@@ -97,11 +105,13 @@ header .mobileMenu {
 }
 
 p {
+    font-size: 1.2rem;
     line-height: 2rem;
+    font-weight: 300;
 }
 
 p.bigger-thin {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: 200;
     line-height: inherit;
 }
@@ -114,4 +124,16 @@ p.bigger-thin {
 
 p.bigger-thin.font-bold {
     font-weight: 500;
+}
+
+.text-stroke-1 {
+    -webkit-text-stroke: 0.5px var(--color-black);
+    text-stroke: 0.5px var(--color-black);
+}
+
+@media (min-width: 768px) {
+    .text-stroke-1 {
+        -webkit-text-stroke: inherit;
+        text-stroke: inherit;
+    }
 }

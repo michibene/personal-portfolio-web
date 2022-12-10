@@ -21,7 +21,7 @@ export default function PortfolioCardItem({
             <div className={`group ${smallerSize ? "w-[80%]" : "w-full"} break-inside-avoid relative`}>
                 <Link to={linkTo}>
                     <div
-                        className={"p-6 md:p-8 md:group-hover:brightness-30"}
+                        className={"p-6 md:p-8 md:group-hover:brightness-25"}
                         style={{ backgroundColor: backgroundColor }}
                     >
                         <img
@@ -36,7 +36,7 @@ export default function PortfolioCardItem({
                     </div>
                     <div
                         className="p-6 md:p-8 absolute bottom-0 left-0 w-full h-0 opacity-0
-                    bg-black/75 md:group-hover:h-full md:group-hover:opacity-100 "
+                        bg-black/75 md:group-hover:h-full md:group-hover:opacity-100"
                     >
                         <div className="flex justify-center items-center h-full">
                             <p className="text-2xl leading-relaxed text-center drop-shadow-[0_0px_6px_rgba(0,0,0,0.8)]">

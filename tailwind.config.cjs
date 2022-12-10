@@ -16,6 +16,11 @@ module.exports = {
                 30: ".3",
                 40: ".4",
             },
+            dropShadow: {
+                'xl-white': [
+                    '0 25px 25px rgb(255 255 255 / 0.02)',
+                ]
+              }
         },
     },
     plugins: [require("@tailwindcss/aspect-ratio")],

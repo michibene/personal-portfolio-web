@@ -29,7 +29,7 @@ export default function GFADashboardApp({ id }: { id: number }) {
                 handleCloseButton={handleBackButton}
             />
 
-            <div className="py-28 md:py-40">
+            <div className="h-[80vh] md:h-[70vh] flex flex-col justify-center mb-10">
                 <p className="text-center bigger-thin">
                     In just 5 weeks we created a working application - and this was our first experience with
                     Javascript!
@@ -45,7 +45,7 @@ export default function GFADashboardApp({ id }: { id: number }) {
                 </div>
             </div>
 
-            <div className="py-28 md:py-40 clickableLink bigger-underline-offset">
+            <div className="h-[80vh] md:h-[70vh] flex flex-col justify-center mb-4 clickableLink bigger-underline-offset">
                 <p className="text-center bigger-thin">And of course it's deployed. Try it out:</p>
                 <a href="https://error-busters.eu/" target="_blank">
                     <p className="pt-4 md:pt-2 text-center font-medium text-[2rem] md:text-5xl leading-[2.75rem]">
