@@ -22,9 +22,9 @@ export default function SectionHeader({ id, title }: SectionHeaderProps) {
     headers.forEach((header) => {
         gsap.to(header.querySelectorAll(".splitChar"), {
             y: 0,
-            stagger: 0.05,
+            stagger: 0.07,
             delay: 0.2,
-            duration: 0.3,
+            duration: 0.5,
             scrollTrigger: {
                 trigger: header,
                 start: "top 80%",
