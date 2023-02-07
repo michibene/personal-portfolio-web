@@ -5,7 +5,7 @@ export default [
         imgName: "HEBEA_virtual_queue_app",
         title: "HEBEA live virtual queue",
         techStack: "NodeJS, ExpressJS, JWT, Sequelize, PostgreSQL, React, TypeScript, Tailwind CSS, Jest",
-        justifyTo: "justify-end",
+        justifyTo: "justify-start",
         smallerSize: false,
         linkTo: "/",
         projectYear: 2023,

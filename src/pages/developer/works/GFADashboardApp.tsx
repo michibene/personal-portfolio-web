@@ -1,34 +1,20 @@
-import CloseButton from "components/ui/CloseButton";
-import developerPortfolio from "data/developer/developerPortfolio";
 import ebDashboardAdminImg from "images/works/GFA_dashboard_app/EB_dashboard_admin.png";
 import ebDashboardUserImg from "images/works/GFA_dashboard_app/EB_dashboard_user.png";
 import ebLoginImg1 from "images/works/GFA_dashboard_app/EB_login_1.png";
 import ebLoginImg2 from "images/works/GFA_dashboard_app/EB_login_2.png";
 import iPhoneDashboardGif from "images/works/GFA_dashboard_app/iPhone-mobile-version.gif";
-import { ScrollRestoration, useNavigate } from "react-router-dom";
-import WorksSectionSummary from "ui/section/WorksSectionSummary";
+import WorksDetailSection from "ui/section/WorksDetailSection";
 
-export default function GFADashboardApp({ id }: { id: number }) {
-    const portfolioItem = developerPortfolio[id];
-    const navigate = useNavigate();
-
-    function handleBackButton() {
-        navigate(-1);
-    }
-
+export default function GFADashboardApp() {
     return (
-        <div className="max-w-7xl mx-auto min-h-screen px-5">
-            <WorksSectionSummary
-                title={portfolioItem.title}
-                abstractParagraph="Web application for managing students and processes in Green Fox Academy. Providing interactive
+        <WorksDetailSection
+            id={2}
+            abstractParagraph="Web application for managing students and processes in Green Fox Academy. Providing interactive
                     dashboard on frontend, own backend API and relational database system."
-                centerImage={iPhoneDashboardGif}
-                teamNames="Jakub K., Michal Beňo, Anna O., Miroslav H., Vladimír M., Roman N."
-                techStack={portfolioItem.techStack}
-                projectYear={portfolioItem.projectYear}
-                handleCloseButton={handleBackButton}
-            />
-
+            centerImage={iPhoneDashboardGif}
+            centerImageBackgroundColor="#16241F"
+            teamNames="Jakub K., Michal Beňo, Anna O., Miroslav H., Vladimír M., Roman N."
+        >
             <div className="h-[80vh] md:h-[70vh] flex flex-col justify-center mb-10">
                 <p className="text-center bigger-thin">
                     In just 5 weeks we created a working application - and this was our first experience with
@@ -64,13 +50,6 @@ export default function GFADashboardApp({ id }: { id: number }) {
                     <img src={ebDashboardUserImg} alt="Login page form to sign in" />
                 </div>
             </div>
-
-            <div className="pt-20 pb-12 md:pt-24 md:pb-16 flex justify-center">
-                <button className="w-8 md:w-12 hover:text-developerBlue" onClick={handleBackButton}>
-                    <CloseButton />
-                </button>
-            </div>
-            <ScrollRestoration />
-        </div>
+        </WorksDetailSection>
     );
 }
