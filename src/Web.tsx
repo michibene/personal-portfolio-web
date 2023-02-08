@@ -2,6 +2,7 @@ import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
 import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
 import developerPortfolio from "data/developer/developerPortfolio";
 import GFADashboardApp from "pages/developer/works/GFADashboardApp";
+import HEBEAVirtualQueueApp from "pages/developer/works/HEBEAVirtualQueueApp";
 import LandingPage from "pages/LandingPage";
 import PreloadingPage from "pages/PreloadingPage";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
@@ -24,6 +25,7 @@ export default function Web() {
         createRoutesFromElements(
             <Route path="/">
                 <Route index element={<LandingPage />} />
+                <Route path={getPathLinkById(1)} element={<HEBEAVirtualQueueApp />} />
                 <Route path={getPathLinkById(2)} element={<GFADashboardApp />} />
             </Route>
         )

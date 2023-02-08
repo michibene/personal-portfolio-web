@@ -7,7 +7,7 @@ export default [
         techStack: "NodeJS, ExpressJS, JWT, Sequelize, PostgreSQL, React, TypeScript, Tailwind CSS, Jest",
         justifyTo: "justify-start",
         smallerSize: false,
-        linkTo: "/",
+        linkTo: "/HEBEA-virtual-queue",
         projectYear: 2023,
     },
     {
