@@ -1,10 +1,11 @@
 import developerWorks from "data/developer/developerPortfolio";
 import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
 
-const portfolioWorksImagesUrls: string[] = [];
+const portfolioWorksImagesUrls: string[] = populatePortfolioImagesArray();
 
 function populatePortfolioImagesArray() {
     const portfolioItems: PortfolioItemProps[] = developerWorks;
+    const portfolioImagesUrls: string[] = [];
 
     // Get full, resolved URL of a static image asset (to properly build path)
     function getPortfolioImageUrl(imgName: string) {
@@ -12,9 +13,10 @@ function populatePortfolioImagesArray() {
     }
 
     portfolioItems.forEach((project) => {
-        portfolioWorksImagesUrls.push(getPortfolioImageUrl(project.imgName));
+        portfolioImagesUrls.push(getPortfolioImageUrl(project.imgName));
     });
+
+    return portfolioImagesUrls;
 }
-populatePortfolioImagesArray();
 
 export default portfolioWorksImagesUrls;
