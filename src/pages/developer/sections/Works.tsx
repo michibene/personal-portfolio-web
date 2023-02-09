@@ -31,8 +31,8 @@ export default function Works() {
 
             <div className="columns-1 md:columns-2 gap-14 space-y-14">
                 {portfolioItems.map((project) => (
-                    <FadeInOpacity>
-                        <div key={project.id}>
+                    <FadeInOpacity key={project.id}>
+                        <div>
                             {isTabletOrMobile && (
                                 <p
                                     className={`mb-4 uppercase ${
