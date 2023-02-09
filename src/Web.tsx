@@ -3,6 +3,8 @@ import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
 import developerPortfolio from "data/developer/developerPortfolio";
 import GFADashboardApp from "pages/developer/works/GFADashboardApp";
 import HEBEAVirtualQueueApp from "pages/developer/works/HEBEAVirtualQueueApp";
+import Error404Page from "pages/error-pages/Error404Page";
+import UnknownErrorPage from "pages/error-pages/UnknownErrorPage";
 import LandingPage from "pages/LandingPage";
 import PreloadingPage from "pages/PreloadingPage";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
@@ -23,10 +25,11 @@ export default function Web() {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
-            <Route path="/">
+            <Route path="/" errorElement={<UnknownErrorPage />}>
                 <Route index element={<LandingPage />} />
                 <Route path={getPathLinkById(1)} element={<HEBEAVirtualQueueApp />} />
                 <Route path={getPathLinkById(2)} element={<GFADashboardApp />} />
+                <Route path="*" element={<Error404Page />} />
             </Route>
         )
     );
