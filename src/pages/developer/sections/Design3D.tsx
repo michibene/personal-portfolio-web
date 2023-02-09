@@ -63,7 +63,7 @@ export default function Design3D() {
                             title="YouTube video player - Short 3D animation"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen
-                        ></iframe>
+                        />
                     </div>
                 </div>
             </FadeInOpacity>

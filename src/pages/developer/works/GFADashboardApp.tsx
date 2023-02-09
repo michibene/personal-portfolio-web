@@ -15,7 +15,7 @@ export default function GFADashboardApp() {
             centerImageBackgroundColor="#16241F"
             teamNames="Jakub K., Michal Beňo, Anna O., Miroslav H., Vladimír M., Roman N."
         >
-            <div className="h-[80vh] md:h-[70vh] flex flex-col justify-center mb-10">
+            <div className="h-[60vh] md:h-[70vh] flex flex-col justify-center mb-10">
                 <p className="text-center bigger-thin">
                     In just 5 weeks we created a working application - and this was our first experience with
                     Javascript!
@@ -31,7 +31,7 @@ export default function GFADashboardApp() {
                 </div>
             </div>
 
-            <div className="h-[80vh] md:h-[70vh] flex flex-col justify-center mb-4 clickableLink bigger-underline-offset">
+            <div className="h-[60vh] md:h-[70vh] flex flex-col justify-center mb-4 clickableLink bigger-underline-offset">
                 <p className="text-center bigger-thin">And of course it's deployed. Try it out:</p>
                 <a href="https://error-busters.eu/" target="_blank">
                     <p className="pt-4 md:pt-2 text-center font-medium text-[2rem] md:text-5xl leading-[2.75rem]">
@@ -48,6 +48,25 @@ export default function GFADashboardApp() {
                 <div className="w-full md:w-[80%] lg:w-[65%] self-end">
                     <p className="pb-2 md:pb-4 lg:pb-6 md:text-xl">User Dashboard</p>
                     <img src={ebDashboardUserImg} alt="Login page form to sign in" />
+                </div>
+            </div>
+
+            <div className="h-[60vh] md:h-[70vh] flex flex-col justify-center mb-10">
+                <p className="text-center bigger-thin">
+                    For more information about the technologies used and how we worked, watch the video
+                </p>
+            </div>
+
+            <div className="mb-20 w-full md:w-2/3 mx-auto">
+                <div className="aspect-w-16 aspect-h-9">
+                    <iframe
+                        width="560"
+                        height="315"
+                        src="https://www.youtube-nocookie.com/embed/TYvwSEom6s8"
+                        title="YouTube video player - Error Busters - Student Management Tool (Fullstack)"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    />
                 </div>
             </div>
         </WorksDetailSection>

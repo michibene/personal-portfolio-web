@@ -4,19 +4,20 @@ import { useEffect, useRef } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-interface FlyFromRightProps {
+interface FlyFromXAxisProps {
+    fromX: number;
     children: JSX.Element | JSX.Element[];
     className?: string;
 }
 
-export default function FlyFromRight({ children, className }: FlyFromRightProps) {
+export default function FlyFromXAxis({ fromX, children, className }: FlyFromXAxisProps) {
     let componentRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
             gsap.from(componentRef.current, {
                 opacity: 0,
-                x: 400,
+                x: fromX,
                 duration: 1,
                 ease: "power1.inOut",
                 scrollTrigger: {
