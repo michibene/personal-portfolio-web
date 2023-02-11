@@ -1,0 +1,5 @@
+# Fix app routing (React Browser router is used in Apache server - redirect all to index.html)
+Options -MultiViews
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.html [QSA,L]
