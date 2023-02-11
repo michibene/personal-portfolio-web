@@ -1,7 +1,7 @@
 name: Build and deploy website to server on push
 on:
     push:
-        branches: ["develop"]
+        branches: ["production"]
 
 jobs:
     build:
