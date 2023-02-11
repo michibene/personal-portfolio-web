@@ -17,9 +17,9 @@ jobs:
             - name: Copy .htaccess file to fix routing on Apache server
               run: |
                   FILENAME=.htaccess
-                  cp "./server/$FILENAME" "./dist/$FILENAME"
+                  cp "./server-config/$FILENAME" "./dist/$FILENAME"
                   echo "$FILENAME file copied to production dist folder"
-                  
+
                   cd dist
                   echo "All Files in production dist folder:"
                   ls -la
