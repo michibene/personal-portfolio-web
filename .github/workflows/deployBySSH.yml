@@ -18,8 +18,11 @@ jobs:
               run: |
                   FILENAME=.htaccess
                   cp "./server/$FILENAME" "./dist/$FILENAME"
-                  cd dist
                   echo "$FILENAME file copied to production dist folder"
+                  
+                  cd dist
+                  echo "All Files in production dist folder:"
+                  ls -la
                   cd ../
             - name: Archive production artifact
               uses: actions/upload-artifact@main
