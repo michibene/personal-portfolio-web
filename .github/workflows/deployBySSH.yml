@@ -16,9 +16,10 @@ jobs:
               run: npm run build
             - name: Copy .htaccess file to fix routing on Apache server
               run: |
-                  cp ./server/.htaccess ./dist/.htaccess
+                  FILENAME=.htaccess
+                  cp "./server/$FILENAME" "./dist/$FILENAME"
                   cd dist
-                  ls -la
+                  echo "$FILENAME file copied to production dist folder"
                   cd ../
             - name: Archive production artifact
               uses: actions/upload-artifact@main
