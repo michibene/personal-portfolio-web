@@ -14,6 +14,12 @@ jobs:
               run: npm ci
             - name: Build dependencies
               run: npm run build
+            - name: Copy .htaccess file to fix routing on Apache server
+              run: |
+                  cp .server/.htaccess ./dist/.htaccess
+                  cd dist
+                  ls -la
+                  cd ../
             - name: Archive production artifact
               uses: actions/upload-artifact@main
               with:
