@@ -16,7 +16,7 @@ jobs:
               run: npm run build
             - name: Copy .htaccess file to fix routing on Apache server
               run: |
-                  cp .server/.htaccess ./dist/.htaccess
+                  cp ./server/.htaccess ./dist/.htaccess
                   cd dist
                   ls -la
                   cd ../
