@@ -21,7 +21,12 @@ export default function Scene() {
     const cameraRef = useRef(null!);
     const orbitControlsRef = useRef<OrbitControlsImpl>(null!);
 
-    /* useHelper(lightLeftRef, SpotLightHelper);
+    /*
+    // ---
+    // Helper code to display light editing tools
+    // ---
+
+    useHelper(lightLeftRef, SpotLightHelper);
     useHelper(lightRightRef, SpotLightHelper);
     useHelper(lightFrontRef, PointLightHelper);
 
@@ -59,7 +64,12 @@ export default function Scene() {
         frontLightFolder.add(lightFrontRef.current["position"], "y").name("position y").step(0.1);
         frontLightFolder.add(lightFrontRef.current["position"], "z").name("position z").step(0.1);
         frontLightFolder.open();
-    }, []); */
+    }, []);
+
+    // ---
+    // End of helper code to display light editing tools
+    // ---
+    */ 
 
     // Hook to get access to the current frame in three js
     useFrame((state, delta) => {
@@ -95,7 +105,7 @@ export default function Scene() {
             <spotLight
                 ref={lightLeftRef}
                 color={lightLeftColor.color}
-                intensity={2.3}
+                intensity={150}
                 position={[-7.5, 9.8, 7.8]}
                 angle={0.6}
                 penumbra={0.5}
@@ -105,14 +115,14 @@ export default function Scene() {
             <spotLight
                 ref={lightRightRef}
                 color={lightRightColor.color}
-                intensity={8}
+                intensity={160}
                 position={[4.4, 3.5, -0.6]}
                 angle={0.6}
                 penumbra={0.5}
                 castShadow
                 shadow-bias={-0.0001}
             />
-            <pointLight ref={lightFrontRef} intensity={0.1} position={[0.9, 1.5, 5]} castShadow shadow-bias={-0.0001} />
+            <pointLight ref={lightFrontRef} intensity={80} position={[0.9, 1.5, 5]} castShadow shadow-bias={-0.0001} />
         </>
     );
 }

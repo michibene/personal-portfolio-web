@@ -27,7 +27,8 @@
             "data/developer/*": ["./data/developer/*"],
             "developer/sections/*": ["./pages/developer/sections/*"],
             "utilities/*": ["./utilities/*"]
-        }
+        },
+        "types": ["@types/offscreencanvas"]
     },
     "include": ["src"],
     "references": [{ "path": "./tsconfig.node.json" }]
