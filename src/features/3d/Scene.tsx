@@ -1,27 +1,27 @@
-import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
-import { useEffect, useRef } from "react";
-import { PointLight, PointLightHelper, SpotLight, SpotLightHelper } from "three";
+/* eslint-disable react/no-unknown-property */
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import { useRef } from "react";
+import { PointLight, SpotLight } from "three";
 import { useFrame } from "@react-three/fiber";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
-import * as dat from "dat.gui";
 import { angleToRadians } from "@util/helpers";
 
 export default function Scene() {
-    const lightLeftColor = { color: "#e5e5d4" };
-    const lightRightColor = { color: "#3f3fa8" };
-    const orbitControlsDefault = {
-        minAzimuthAngle: angleToRadians(-70),
-        maxAzimuthAngle: angleToRadians(75),
-        autoRotateSpeed: 1.3,
-    };
+  const lightLeftColor = { color: "#e5e5d4" };
+  const lightRightColor = { color: "#3f3fa8" };
+  const orbitControlsDefault = {
+    minAzimuthAngle: angleToRadians(-70),
+    maxAzimuthAngle: angleToRadians(75),
+    autoRotateSpeed: 1.3,
+  };
 
-    const lightLeftRef = useRef<SpotLight>(null!);
-    const lightRightRef = useRef<SpotLight>(null!);
-    const lightFrontRef = useRef<PointLight>(null!);
-    const cameraRef = useRef(null!);
-    const orbitControlsRef = useRef<OrbitControlsImpl>(null!);
+  const lightLeftRef = useRef<SpotLight>(null!);
+  const lightRightRef = useRef<SpotLight>(null!);
+  const lightFrontRef = useRef<PointLight>(null!);
+  const cameraRef = useRef(null!);
+  const orbitControlsRef = useRef<OrbitControlsImpl>(null!);
 
-    /*
+  /*
     // ---
     // Helper code to display light editing tools
     // ---
@@ -69,60 +69,66 @@ export default function Scene() {
     // ---
     // End of helper code to display light editing tools
     // ---
-    */ 
+    */
 
-    // Hook to get access to the current frame in three js
-    useFrame((state, delta) => {
-        if (orbitControlsRef.current) {
-            // Change rotation to the opposite side on the orbit controls limits
-            if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.minAzimuthAngle) {
-                orbitControlsRef.current.autoRotateSpeed = -orbitControlsDefault.autoRotateSpeed;
-            }
-            if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.maxAzimuthAngle) {
-                orbitControlsRef.current.autoRotateSpeed = orbitControlsDefault.autoRotateSpeed;
-            }
-        }
-    });
+  // Hook to get access to the current frame in three js
+  useFrame(() => {
+    if (orbitControlsRef.current) {
+      // Change rotation to the opposite side on the orbit controls limits
+      if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.minAzimuthAngle) {
+        orbitControlsRef.current.autoRotateSpeed = -orbitControlsDefault.autoRotateSpeed;
+      }
+      if (orbitControlsRef.current.getAzimuthalAngle() === orbitControlsDefault.maxAzimuthAngle) {
+        orbitControlsRef.current.autoRotateSpeed = orbitControlsDefault.autoRotateSpeed;
+      }
+    }
+  });
 
-    return (
-        <>
-            <PerspectiveCamera ref={cameraRef} makeDefault={true} fov={50} position={[0.14, 1.57, 1.8]} />
-            <OrbitControls
-                ref={orbitControlsRef}
-                target={[0, 0.95, 0]}
-                minDistance={1.3}
-                maxDistance={5}
-                minPolarAngle={angleToRadians(15)}
-                maxPolarAngle={angleToRadians(100)}
-                minAzimuthAngle={orbitControlsDefault.minAzimuthAngle}
-                maxAzimuthAngle={orbitControlsDefault.maxAzimuthAngle}
-                panSpeed={1.1}
-                rotateSpeed={0.9}
-                autoRotate={true}
-                autoRotateSpeed={orbitControlsDefault.autoRotateSpeed}
-            />
+  return (
+    <>
+      <PerspectiveCamera ref={cameraRef} makeDefault={true} fov={50} position={[0.14, 1.57, 1.8]} />
+      <OrbitControls
+        ref={orbitControlsRef}
+        target={[0, 0.95, 0]}
+        minDistance={1.3}
+        maxDistance={5}
+        minPolarAngle={angleToRadians(15)}
+        maxPolarAngle={angleToRadians(100)}
+        minAzimuthAngle={orbitControlsDefault.minAzimuthAngle}
+        maxAzimuthAngle={orbitControlsDefault.maxAzimuthAngle}
+        panSpeed={1.1}
+        rotateSpeed={0.9}
+        autoRotate={true}
+        autoRotateSpeed={orbitControlsDefault.autoRotateSpeed}
+      />
 
-            <spotLight
-                ref={lightLeftRef}
-                color={lightLeftColor.color}
-                intensity={150}
-                position={[-7.5, 9.8, 7.8]}
-                angle={0.6}
-                penumbra={0.5}
-                castShadow
-                shadow-bias={-0.0001}
-            />
-            <spotLight
-                ref={lightRightRef}
-                color={lightRightColor.color}
-                intensity={160}
-                position={[4.4, 3.5, -0.6]}
-                angle={0.6}
-                penumbra={0.5}
-                castShadow
-                shadow-bias={-0.0001}
-            />
-            <pointLight ref={lightFrontRef} intensity={80} position={[0.9, 1.5, 5]} castShadow shadow-bias={-0.0001} />
-        </>
-    );
+      <spotLight
+        ref={lightLeftRef}
+        color={lightLeftColor.color}
+        intensity={150}
+        position={[-7.5, 9.8, 7.8]}
+        angle={0.6}
+        penumbra={0.5}
+        castShadow
+        shadow-bias={-0.0001}
+      />
+      <spotLight
+        ref={lightRightRef}
+        color={lightRightColor.color}
+        intensity={160}
+        position={[4.4, 3.5, -0.6]}
+        angle={0.6}
+        penumbra={0.5}
+        castShadow
+        shadow-bias={-0.0001}
+      />
+      <pointLight
+        ref={lightFrontRef}
+        intensity={80}
+        position={[0.9, 1.5, 5]}
+        castShadow
+        shadow-bias={-0.0001}
+      />
+    </>
+  );
 }

@@ -4,19 +4,19 @@ import { SelfCharacter3DModel } from "@features/3d/SelfCharacter3DModel";
 import { useInView } from "react-intersection-observer";
 
 export default function Canvas3D() {
-    const { ref, inView } = useInView();
+  const { ref, inView } = useInView();
 
-    return (
-        <>
-            <Canvas shadows ref={ref}>
-                {inView && (
-                    <>
-                        <ambientLight />
-                        <SelfCharacter3DModel />
-                        <Scene />
-                    </>
-                )}
-            </Canvas>
-        </>
-    );
+  return (
+    <>
+      <Canvas shadows ref={ref}>
+        {inView && (
+          <>
+            <ambientLight />
+            <SelfCharacter3DModel />
+            <Scene />
+          </>
+        )}
+      </Canvas>
+    </>
+  );
 }

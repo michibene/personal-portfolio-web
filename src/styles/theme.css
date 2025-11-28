@@ -1,0 +1,45 @@
+@theme {
+  /* Colors */
+  --color-developer-blue: #6f73d9;
+  --color-developer-blue-dark: #6e38a8;
+  --color-landscape-green: #50b590;
+  --color-landscape-green-dark: #14878e;
+  --color-custom-black: #0f0f11;
+  --color-custom-white: #d9d8d0;
+
+  /* Brightness */
+  --brightness-25: 0.25;
+  --brightness-30: 0.3;
+  --brightness-40: 0.4;
+
+  /* Drop Shadow */
+  --drop-shadow-xl-white: 0 25px 25px rgb(255 255 255 / 0.02);
+}
+
+/* Base theme styles */
+:root {
+  --color-black: var(--color-custom-black);
+  --color-white: var(--color-custom-white);
+  --color-blue: var(--color-developer-blue);
+  --color-green: var(--color-landscape-green);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
