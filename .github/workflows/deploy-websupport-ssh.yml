@@ -114,7 +114,7 @@ jobs:
           set -euo pipefail
           umask 022
           echo "🚀 Deploying WEB to release directory: $RELEASE_PATH"
-          rsync -az --delete-after \
+          rsync -az \
             --delay-updates --delete-delay --chmod=F644,D755 \
             -e "ssh -o StrictHostKeyChecking=yes -T -p $SSH_PORT" \
             dist/ "$SSH_USER@$SSH_HOST:$RELEASE_PATH/"
