@@ -194,7 +194,8 @@ jobs:
 
           echo "Current symlink target:"
           readlink -f $CURRENT_PATH
-          echo "HTTP smoke test (localhost):"
+          
+          echo "HTTP smoke test (production):"
           curl -I --fail --max-time 10 https://michalbeno.eu/ || { echo "Smoke test failed"; exit 1; }
           echo "🎉 Sanity check passed."
           EOSSH
