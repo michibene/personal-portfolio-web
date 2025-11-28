@@ -46,6 +46,7 @@ jobs:
       SSH_USER: ${{ vars.HOSTING_SSH_USER_LOGIN }}
       SSH_PORT: ${{ vars.HOSTING_SSH_PORT }}
       SSH_PRIVATE_KEY: ${{ secrets.HOSTING_SSH_PRIVATE_KEY }}
+      SSH_HOST_KEY: ${{ vars.HOSTING_SSH_HOST_KEY }}
       REMOTE_ROOT: michalbeno.eu
       REMOTE_RELEASES_DIR: michalbeno.eu/.releases
       REMOTE_CURRENT_DIR: michalbeno.eu/web
@@ -69,7 +70,13 @@ jobs:
       - name: Add SSH host key
         run: |
           set -euo pipefail
-          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          if [ -n "${SSH_HOST_KEY:-}" ]; then
+            echo "Using pinned SSH host key from vars."
+            printf '%s\n' "$SSH_HOST_KEY" > ~/.ssh/known_hosts
+          else
+            echo "⚠️ SSH_HOST_KEY not set; falling back to ssh-keyscan."
+            ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" > ~/.ssh/known_hosts
+          fi
           chmod 600 ~/.ssh/known_hosts
 
       - name: Check remote paths
@@ -90,13 +97,13 @@ jobs:
           mkdir -p "\$RELEASES_DIR"
           ls -ld "\$ROOT_DIR" "\$RELEASES_DIR"
           ls -ld "\$CURRENT_DIR" || true
-          echo "Remote paths look good."
+          echo "📟 Remote paths look good."
           EOSSH
 
       - name: Define release paths
         run: |
           set -euo pipefail
-          release_name="release-$(date +%Y%m%d%H%M%S)"
+          release_name="release-$(date +%Y%m%d-%H%M%S)"
           echo "📦 Preparing release: $release_name"
           echo "RELEASE_NAME=$release_name" >> "$GITHUB_ENV"
           echo "RELEASE_PATH=~/$REMOTE_RELEASES_DIR/$release_name" >> "$GITHUB_ENV"
@@ -105,21 +112,71 @@ jobs:
       - name: Upload build to new release
         run: |
           set -euo pipefail
+          umask 022
           echo "🚀 Deploying WEB to release directory: $RELEASE_PATH"
           rsync -az --delete-after \
+            --delay-updates --delete-delay --chmod=F644,D755 \
             -e "ssh -o StrictHostKeyChecking=yes -T -p $SSH_PORT" \
             dist/ "$SSH_USER@$SSH_HOST:$RELEASE_PATH/"
 
       - name: Activate new release
         run: |
           set -euo pipefail
-          ssh -o StrictHostKeyChecking=yes -T -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOSSH
-          set -euo pipefail
-          mkdir -p $RELEASE_PATH
-          ln -sfn $RELEASE_PATH $CURRENT_PATH
-          echo "Symlink updated to: $RELEASE_PATH"
-          EOSSH
+          ssh -o StrictHostKeyChecking=yes -T -p "$SSH_PORT" \
+            REMOTE_ROOT="$REMOTE_ROOT" \
+            REMOTE_RELEASES_DIR="$REMOTE_RELEASES_DIR" \
+            REMOTE_CURRENT_DIR="$REMOTE_CURRENT_DIR" \
+            RELEASE_NAME="$RELEASE_NAME" \
+            "$SSH_USER@$SSH_HOST" bash -s <<'EOSSH'
+          set -Eeuo pipefail
+
+          umask 022
+          ROOT_DIR="$HOME/$REMOTE_ROOT"
+          RELEASES_DIR="$HOME/$REMOTE_RELEASES_DIR"
+          LIVE_DIR="$HOME/$REMOTE_CURRENT_DIR"
+          RELEASE_DIR="$RELEASES_DIR/$RELEASE_NAME"
+          PREVIOUS_TARGET=""
+
+          rollback() {
+            echo "❌ Activation failed — attempting rollback…"
+            if [ -n "$PREVIOUS_TARGET" ]; then
+              rm -rf "$LIVE_DIR" || true
+              ln -sfn "$PREVIOUS_TARGET" "$LIVE_DIR" || true
+              echo "↩️  Rolled back to previous live target: $PREVIOUS_TARGET"
+            fi
+          }
+          trap rollback ERR
+
+          if [ ! -d "$RELEASE_DIR" ]; then
+            echo "❌ Missing release directory: $RELEASE_DIR" >&2
+            exit 1
+          fi
+
+          if [ -L "$LIVE_DIR" ]; then
+            PREVIOUS_TARGET="$(readlink -f "$LIVE_DIR")"
+          elif [ -d "$LIVE_DIR" ]; then
+            echo "❌ Current live path is a real directory (not a symlink): $LIVE_DIR"
+            echo "   Remove or convert it to a symlink before deploying."
+            exit 1
+          fi
+
+          ln -sfn "$RELEASE_DIR" "$LIVE_DIR"
+          echo "Symlink updated to: $RELEASE_DIR"
+
+          echo "🧹 Cleaning up old releases (keeping 5 latest)"
+          cd "$RELEASES_DIR"
+          to_prune="$(ls -1dt release-* 2>/dev/null | tail -n +6 || true)"
+          if [ -n "$to_prune" ]; then
+            echo "Pruning releases:"
+            printf '%s\n' "$to_prune"
+            printf '%s\n' "$to_prune" | xargs -r rm -rf
+          else
+            echo "Nothing to prune."
+          fi
+
+          trap - ERR
           echo "✅ Activation completed."
+          EOSSH
 
       - name: Post-deploy sanity check
         run: |
@@ -137,10 +194,7 @@ jobs:
 
           echo "Current symlink target:"
           readlink -f $CURRENT_PATH
+          echo "HTTP smoke test (localhost):"
+          curl -I --fail --max-time 10 https://michalbeno.eu/ || { echo "Smoke test failed"; exit 1; }
           echo "🎉 Sanity check passed."
           EOSSH
-
-      - name: Deployment completed
-        run: |
-          echo "Deployment successful: release $RELEASE_NAME now linked at $CURRENT_PATH"
-          echo "✅ Frontend deployment completed successfully!"
