@@ -4,7 +4,7 @@ import { PointLight, PointLightHelper, SpotLight, SpotLightHelper } from "three"
 import { useFrame } from "@react-three/fiber";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
 import * as dat from "dat.gui";
-import { angleToRadians } from "util/helpers";
+import { angleToRadians } from "@util/helpers";
 
 export default function Scene() {
     const lightLeftColor = { color: "#e5e5d4" };

@@ -1,11 +1,11 @@
-import FadeInOpacity from "animation/FadeInOpacity";
-import developerWorks from "data/developer/developerPortfolio";
+import FadeInOpacity from "@ui/animation/FadeInOpacity";
+import developerWorks from "@data/developer/developerPortfolio";
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive";
-import PortfolioCardItem from "ui/card/PortfolioCardItem";
-import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
-import SectionFullHeight from "ui/section/SectionFullHeight";
-import SectionHeader from "ui/section/SectionHeader";
+import PortfolioCardItem from "@ui/card/PortfolioCardItem";
+import { PortfolioItemProps } from "@ui/card/PortfolioItemProps";
+import SectionFullHeight from "@ui/section/SectionFullHeight";
+import SectionHeader from "@ui/section/SectionHeader";
 
 export default function Works() {
     const isTabletOrMobile = useMediaQuery({ query: "(max-width: 768px)" });

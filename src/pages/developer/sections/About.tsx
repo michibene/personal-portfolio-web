@@ -1,8 +1,8 @@
-import FadeInOpacity from "animation/FadeInOpacity";
+import FadeInOpacity from "@ui/animation/FadeInOpacity";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionFullHeight from "ui/section/SectionFullHeight";
-import SectionHeader from "ui/section/SectionHeader";
+import SectionFullHeight from "@ui/section/SectionFullHeight";
+import SectionHeader from "@ui/section/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,6 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-import Scene from "features/3d/Scene";
-import { SelfCharacter3DModel } from "features/3d/SelfCharacter3DModel";
+import Scene from "@features/3d/Scene";
+import { SelfCharacter3DModel } from "@features/3d/SelfCharacter3DModel";
 import { useInView } from "react-intersection-observer";
 
 export default function Canvas3D() {

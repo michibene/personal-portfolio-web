@@ -1,10 +1,10 @@
-import FadeInOpacity from "animation/FadeInOpacity";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
-import CarRotationSequence from "features/car/CarRotationSequence";
-import SectionFullHeight from "ui/section/SectionFullHeight";
-import SectionHeader from "ui/section/SectionHeader";
+import FadeInOpacity from "@ui/animation/FadeInOpacity";
+import CarRotationSequence from "@features/car/CarRotationSequence";
+import SectionFullHeight from "@ui/section/SectionFullHeight";
+import SectionHeader from "@ui/section/SectionHeader";
 
 gsap.registerPlugin(ScrollTrigger);
 

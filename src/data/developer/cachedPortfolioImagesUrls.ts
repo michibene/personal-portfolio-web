@@ -1,5 +1,5 @@
-import developerWorks from "data/developer/developerPortfolio";
-import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
+import developerWorks from "@data/developer/developerPortfolio";
+import { PortfolioItemProps } from "@ui/card/PortfolioItemProps";
 
 const portfolioWorksImagesUrls: string[] = populatePortfolioImagesArray();
 

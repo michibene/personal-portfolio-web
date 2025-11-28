@@ -1,4 +1,4 @@
-import SecondaryButton from "components/ui/buttons/SecondaryButton";
+import SecondaryButton from "@components/ui/buttons/SecondaryButton";
 import { BsArrowLeft } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 

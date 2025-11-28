@@ -1,7 +1,7 @@
-import hebeaMainPageImg from "images/works/HEBEA_queue/HEBEA-mainpage.png";
-import hebeaVirtualQueueImg from "images/works/HEBEA_queue/HEBEA-online-cakaren.png";
-import hebeaAdminDoctorDashboardImg from "images/works/HEBEA_queue/HEBEA-admin-lekar.png";
-import WorksDetailSection from "ui/section/WorksDetailSection";
+import hebeaMainPageImg from "@images/works/HEBEA_queue/HEBEA-mainpage.png";
+import hebeaVirtualQueueImg from "@images/works/HEBEA_queue/HEBEA-online-cakaren.png";
+import hebeaAdminDoctorDashboardImg from "@images/works/HEBEA_queue/HEBEA-admin-lekar.png";
+import WorksDetailSection from "@ui/section/WorksDetailSection";
 
 export default function HEBEAVirtualQueueApp() {
     return (

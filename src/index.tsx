@@ -1,4 +1,4 @@
-import Web from "Web";
+import Web from "./Web";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles/global.css";

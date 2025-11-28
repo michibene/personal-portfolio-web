@@ -1,6 +1,6 @@
-import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
+import portfolioWorksImagesUrls from "@data/developer/cachedPortfolioImagesUrls";
 import { Link } from "react-router-dom";
-import { PortfolioItemProps } from "ui/card/PortfolioItemProps";
+import { PortfolioItemProps } from "@ui/card/PortfolioItemProps";
 
 export default function PortfolioCardItem({
     id,

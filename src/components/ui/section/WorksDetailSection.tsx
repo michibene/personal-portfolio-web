@@ -1,6 +1,6 @@
-import developerPortfolio from "data/developer/developerPortfolio";
+import developerPortfolio from "@data/developer/developerPortfolio";
 import { ScrollRestoration, useNavigate } from "react-router-dom";
-import CloseButton from "components/ui/CloseButton";
+import CloseButton from "@components/ui/CloseButton";
 
 type WorksDetailSectionProps = {
     id: number;

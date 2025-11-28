@@ -1,4 +1,4 @@
-import SpinnerLoader from "components/ui/SpinnerLoader";
+import SpinnerLoader from "@components/ui/SpinnerLoader";
 
 export default function PreloadingPage() {
     return (

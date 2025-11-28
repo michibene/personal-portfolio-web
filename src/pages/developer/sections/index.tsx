@@ -1,7 +1,7 @@
-import About from "developer/sections/About";
-import Works from "developer/sections/Works";
-import Design3D from "developer/sections/Design3D";
-import Contact from "developer/sections/Contact";
+import About from "@sections/About";
+import Works from "@sections/Works";
+import Design3D from "@sections/Design3D";
+import Contact from "@sections/Contact";
 
 export default function DeveloperSections() {
     return (

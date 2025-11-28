@@ -1,5 +1,5 @@
-import NavbarName from "navigation/parts/NavbarName";
-import NavbarMenu from "navigation/parts/NavbarMenu";
+import NavbarName from "@navigation/parts/NavbarName";
+import NavbarMenu from "@navigation/parts/NavbarMenu";
 
 interface NavbarMobileProps {
     handleMenuOpen: () => void;

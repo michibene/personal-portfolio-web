@@ -1,9 +1,9 @@
-import FadeInOpacity from "animation/FadeInOpacity";
-import Canvas3D from "features/3d/Canvas3D";
-import DeveloperSections from "developer/sections/index";
-import Navigation from "navigation/Navigation";
+import FadeInOpacity from "@ui/animation/FadeInOpacity";
+import Canvas3D from "@features/3d/Canvas3D";
+import DeveloperSections from "@sections/index";
+import Navigation from "@navigation/Navigation";
 import { useEffect } from "react";
-import { scrollTriggerRefreshAction } from "util/scrollTriggerRefresh";
+import { scrollTriggerRefreshAction } from "@util/scrollTriggerRefresh";
 
 export default function LandingPage() {
     useEffect(() => {
@@ -20,9 +20,9 @@ export default function LandingPage() {
                     <div className="self-start mt-4 md:mt-32 cursor-default">
                         <h1
                             className="text-6xl lg:text-7xl xl:text-8xl drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)] md:drop-shadow-[0_2px_7px_rgba(0,0,0,0.7)]
-                        text-transparent bg-clip-text bg-gradient-to-br from-developerBlue to-developerBlueDark
+                        text-transparent bg-clip-text bg-linear-to-br from-developerBlue to-developerBlueDark
                         font-extrabold md:font-semibold text-stroke-1 line-height-1
-                        md:text-customWhite hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-br hover:from-developerBlue hover:to-developerBlueDark"
+                        md:text-customWhite hover:text-developerBlue hover:text-transparent hover:bg-clip-text hover:bg-linear-to-br hover:from-developerBlue hover:to-developerBlueDark"
                         >
                             Developer, <br />
                             Designer

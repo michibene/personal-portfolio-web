@@ -1,6 +1,6 @@
-import FlyFromRight from "animation/FlyFromXAxis";
-import SectionFullHeight from "ui/section/SectionFullHeight";
-import SectionHeader from "ui/section/SectionHeader";
+import FlyFromRight from "@ui/animation/FlyFromXAxis";
+import SectionFullHeight from "@ui/section/SectionFullHeight";
+import SectionHeader from "@ui/section/SectionHeader";
 
 export default function Contact() {
     return (

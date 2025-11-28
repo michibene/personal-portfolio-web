@@ -1,9 +1,9 @@
-import ebDashboardAdminImg from "images/works/GFA_dashboard_app/EB_dashboard_admin.png";
-import ebDashboardUserImg from "images/works/GFA_dashboard_app/EB_dashboard_user.png";
-import ebLoginImg1 from "images/works/GFA_dashboard_app/EB_login_1.png";
-import ebLoginImg2 from "images/works/GFA_dashboard_app/EB_login_2.png";
-import iPhoneDashboardGif from "images/works/GFA_dashboard_app/iPhone-mobile-version.gif";
-import WorksDetailSection from "ui/section/WorksDetailSection";
+import ebDashboardAdminImg from "@images/works/GFA_dashboard_app/EB_dashboard_admin.png";
+import ebDashboardUserImg from "@images/works/GFA_dashboard_app/EB_dashboard_user.png";
+import ebLoginImg1 from "@images/works/GFA_dashboard_app/EB_login_1.png";
+import ebLoginImg2 from "@images/works/GFA_dashboard_app/EB_login_2.png";
+import iPhoneDashboardGif from "@images/works/GFA_dashboard_app/iPhone-mobile-version.gif";
+import WorksDetailSection from "@ui/section/WorksDetailSection";
 
 export default function GFADashboardApp() {
     return (
