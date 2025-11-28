@@ -1,8 +1,8 @@
 import FadeInOpacity from "animation/FadeInOpacity";
-import CarRotationSequence from "components/carAnimation/CarRotationSequence";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef } from "react";
+import CarRotationSequence from "features/car/CarRotationSequence";
 import SectionFullHeight from "ui/section/SectionFullHeight";
 import SectionHeader from "ui/section/SectionHeader";
 

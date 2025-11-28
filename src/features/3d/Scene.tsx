@@ -1,10 +1,10 @@
 import { OrbitControls, PerspectiveCamera, useHelper } from "@react-three/drei";
 import { useEffect, useRef } from "react";
 import { PointLight, PointLightHelper, SpotLight, SpotLightHelper } from "three";
-import * as dat from "dat.gui";
 import { useFrame } from "@react-three/fiber";
 import type { OrbitControls as OrbitControlsImpl } from "three-stdlib";
-import { angleToRadians } from "utilities/helpers";
+import * as dat from "dat.gui";
+import { angleToRadians } from "util/helpers";
 
 export default function Scene() {
     const lightLeftColor = { color: "#e5e5d4" };

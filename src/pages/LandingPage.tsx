@@ -1,9 +1,9 @@
 import FadeInOpacity from "animation/FadeInOpacity";
-import Canvas3D from "components/character3D/Canvas3D";
+import Canvas3D from "features/3d/Canvas3D";
 import DeveloperSections from "developer/sections/index";
 import Navigation from "navigation/Navigation";
 import { useEffect } from "react";
-import { scrollTriggerRefreshAction } from "utilities/scrollTriggerRefresh";
+import { scrollTriggerRefreshAction } from "util/scrollTriggerRefresh";
 
 export default function LandingPage() {
     useEffect(() => {

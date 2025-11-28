@@ -3,7 +3,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLayoutEffect, useRef, useState } from "react";
 import useWindowSizeHook, { Size } from "./useWindowSizeHook";
 import defaultCarAnimationImageSource from "images/BMW_Render_animation/0001.png";
-import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
+import carAnimationImagesSources from "./data/cachedCarImagesUrls";
 
 gsap.registerPlugin(ScrollTrigger);
 

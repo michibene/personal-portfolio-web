@@ -18,18 +18,19 @@
         "baseUrl": "./src",
         "paths": {
             "images/*": ["./assets/images/*"],
-            "models/*": ["./assets/models/*"],
-            "animation/*": ["./components/ui/animation/*"],
-            "ui/card/*": ["./components/ui/card/*"],
-            "navigation/*": ["./components/ui/navigation/*"],
-            "ui/section/*": ["./components/ui/section/*"],
-            "character3D/*": ["./components/character3D/*"],
-            "data/developer/*": ["./data/developer/*"],
-            "developer/sections/*": ["./pages/developer/sections/*"],
-            "utilities/*": ["./utilities/*"]
-        },
-        "types": ["@types/offscreencanvas"]
+        "models/*": ["./assets/models/*"],
+        "animation/*": ["./components/ui/animation/*"],
+        "ui/card/*": ["./components/ui/card/*"],
+        "navigation/*": ["./components/ui/navigation/*"],
+        "ui/section/*": ["./components/ui/section/*"],
+        "features/3d/*": ["./features/3d/*"],
+        "features/car/*": ["./features/car/*"],
+        "data/developer/*": ["./data/developer/*"],
+        "developer/sections/*": ["./pages/developer/sections/*"],
+        "util/*": ["./util/*"]
     },
+    "types": ["@types/offscreencanvas"]
+  },
     "include": ["src"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

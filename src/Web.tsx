@@ -1,4 +1,4 @@
-import carAnimationImagesSources from "data/developer/cachedCarImagesUrls";
+import carAnimationImagesSources from "features/car/data/cachedCarImagesUrls";
 import portfolioWorksImagesUrls from "data/developer/cachedPortfolioImagesUrls";
 import developerPortfolio from "data/developer/developerPortfolio";
 import GFADashboardApp from "pages/developer/works/GFADashboardApp";
@@ -8,7 +8,7 @@ import UnknownErrorPage from "pages/error-pages/UnknownErrorPage";
 import LandingPage from "pages/LandingPage";
 import PreloadingPage from "pages/PreloadingPage";
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
-import useImagePreloader from "utilities/useImagePreloader";
+import useImagePreloader from "util/useImagePreloader";
 
 export default function Web() {
     // Join images sources arrays to preload all of them
