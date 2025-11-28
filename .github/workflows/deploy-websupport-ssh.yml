@@ -1,0 +1,141 @@
+name: Deploy to Websupport via SSH
+on:
+  push:
+    branches: ["production"]
+
+jobs:
+  build:
+    name: 🔨 Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+
+      - name: Copy .htaccess file to fix routing on Apache server
+        run: |
+          FILENAME=.htaccess
+          cp "./server-config/$FILENAME" "./dist/$FILENAME"
+          echo "$FILENAME file copied to production dist folder"
+
+          cd dist
+          echo "All Files in production dist folder:"
+          ls -la
+          cd ../
+
+      - name: Upload build artifacts for deployment
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          if-no-files-found: error
+  deploy:
+    name: 🚀 Deploy to Websupport via SSH
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      SSH_HOST: ${{ vars.HOSTING_SSH_HOST }}
+      SSH_USER: ${{ vars.HOSTING_SSH_USER_LOGIN }}
+      SSH_PORT: ${{ vars.HOSTING_SSH_PORT }}
+      SSH_PRIVATE_KEY: ${{ secrets.HOSTING_SSH_PRIVATE_KEY }}
+      REMOTE_ROOT: michalbeno.eu
+      REMOTE_RELEASES_DIR: michalbeno.eu/.releases
+      REMOTE_CURRENT_DIR: michalbeno.eu/web
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Setup SSH agent
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          eval "$(ssh-agent -s)"
+          ssh-add <(printf '%s\n' "$SSH_PRIVATE_KEY")
+
+      - name: Add SSH host key
+        run: |
+          set -euo pipefail
+          ssh-keyscan -p "$SSH_PORT" "$SSH_HOST" >> ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/known_hosts
+
+      - name: Check remote paths
+        run: |
+          set -euo pipefail
+          echo "🔍 Validating remote paths on $SSH_HOST..."
+          ssh -o StrictHostKeyChecking=yes -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOSSH
+          set -euo pipefail
+          ROOT_DIR="\$HOME/$REMOTE_ROOT"
+          RELEASES_DIR="\$HOME/$REMOTE_RELEASES_DIR"
+          CURRENT_DIR="\$HOME/$REMOTE_CURRENT_DIR"
+
+          if [ ! -d "\$ROOT_DIR" ]; then
+            echo "Missing base directory: \$ROOT_DIR" >&2
+            exit 1
+          fi
+
+          mkdir -p "\$RELEASES_DIR"
+          ls -ld "\$ROOT_DIR" "\$RELEASES_DIR"
+          ls -ld "\$CURRENT_DIR" || true
+          echo "Remote paths look good."
+          EOSSH
+
+      - name: Define release paths
+        run: |
+          set -euo pipefail
+          release_name="release-$(date +%Y%m%d%H%M%S)"
+          echo "📦 Preparing release: $release_name"
+          echo "RELEASE_NAME=$release_name" >> "$GITHUB_ENV"
+          echo "RELEASE_PATH=~/$REMOTE_RELEASES_DIR/$release_name" >> "$GITHUB_ENV"
+          echo "CURRENT_PATH=~/$REMOTE_CURRENT_DIR" >> "$GITHUB_ENV"
+
+      - name: Upload build to new release
+        run: |
+          set -euo pipefail
+          echo "🚀 Deploying WEB to release directory: $RELEASE_PATH"
+          rsync -az --delete-after \
+            -e "ssh -o StrictHostKeyChecking=yes -p $SSH_PORT" \
+            dist/ "$SSH_USER@$SSH_HOST:$RELEASE_PATH/"
+
+      - name: Activate new release
+        run: |
+          set -euo pipefail
+          ssh -o StrictHostKeyChecking=yes -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOSSH
+          set -euo pipefail
+          mkdir -p $RELEASE_PATH
+          ln -sfn $RELEASE_PATH $CURRENT_PATH
+          echo "Symlink updated to: $RELEASE_PATH"
+          EOSSH
+          echo "✅ Activation completed."
+
+      - name: Post-deploy sanity check
+        run: |
+          set -euo pipefail
+          ssh -o StrictHostKeyChecking=yes -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" <<EOSSH
+          set -euo pipefail
+
+          echo "Release directory:"
+          ls -ld $RELEASE_PATH
+
+          echo "Release contents (top):"
+          ls -la $RELEASE_PATH | head
+
+          test -f $RELEASE_PATH/index.html
+
+          echo "Current symlink target:"
+          readlink -f $CURRENT_PATH
+          echo "🎉 Sanity check passed."
+          EOSSH
+
+      - name: Deployment completed
+        run: |
+          echo "Deployment successful: release $RELEASE_NAME now linked at $CURRENT_PATH"
+          echo "✅ Frontend deployment completed successfully!"
