@@ -1,4 +1,7 @@
 name: Deploy to Websupport via SSH
+permissions:
+  contents: read
+  actions: read
 on:
   push:
     branches: ["production"]
