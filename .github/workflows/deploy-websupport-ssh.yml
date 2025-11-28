@@ -122,12 +122,12 @@ jobs:
       - name: Activate new release
         run: |
           set -euo pipefail
-          ssh -o StrictHostKeyChecking=yes -T -p "$SSH_PORT" \
+          ssh -o StrictHostKeyChecking=yes -T -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
             REMOTE_ROOT="$REMOTE_ROOT" \
             REMOTE_RELEASES_DIR="$REMOTE_RELEASES_DIR" \
             REMOTE_CURRENT_DIR="$REMOTE_CURRENT_DIR" \
             RELEASE_NAME="$RELEASE_NAME" \
-            "$SSH_USER@$SSH_HOST" bash -s <<'EOSSH'
+            bash -s <<'EOSSH'
           set -Eeuo pipefail
 
           umask 022
