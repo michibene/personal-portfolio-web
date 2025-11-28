@@ -1,35 +1,35 @@
 {
-    "compilerOptions": {
-        "target": "ESNext",
-        "useDefineForClassFields": true,
-        "lib": ["DOM", "DOM.Iterable", "ESNext"],
-        "allowJs": false,
-        "skipLibCheck": true,
-        "esModuleInterop": false,
-        "allowSyntheticDefaultImports": true,
-        "strict": true,
-        "forceConsistentCasingInFileNames": true,
-        "module": "ESNext",
-        "moduleResolution": "Node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "jsx": "react-jsx",
-        "baseUrl": "./src",
-        "paths": {
-            "images/*": ["./assets/images/*"],
-            "models/*": ["./assets/models/*"],
-            "animation/*": ["./components/ui/animation/*"],
-            "ui/card/*": ["./components/ui/card/*"],
-            "navigation/*": ["./components/ui/navigation/*"],
-            "ui/section/*": ["./components/ui/section/*"],
-            "character3D/*": ["./components/character3D/*"],
-            "data/developer/*": ["./data/developer/*"],
-            "developer/sections/*": ["./pages/developer/sections/*"],
-            "utilities/*": ["./utilities/*"]
-        },
-        "types": ["@types/offscreencanvas"]
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@images/*": ["src/assets/images/*"],
+      "@components/*": ["src/components/*"],
+      "@ui/*": ["src/components/ui/*"],
+      "@navigation/*": ["src/components/ui/navigation/*"],
+      "@features/*": ["src/features/*"],
+      "@data/*": ["src/data/*"],
+      "@pages/*": ["src/pages/*"],
+      "@sections/*": ["src/pages/developer/sections/*"],
+      "@styles/*": ["src/styles/*"],
+      "@util/*": ["src/util/*"]
     },
-    "include": ["src"],
-    "references": [{ "path": "./tsconfig.node.json" }]
+    "types": ["vite/client", "@types/offscreencanvas"]
+  },
+  "include": ["src"]
 }
